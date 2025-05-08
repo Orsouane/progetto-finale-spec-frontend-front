@@ -1,12 +1,16 @@
+
+import { GlobalProvider } from "./Context/GlobalContext"
+import Home from "./Pages/Home"
 function App() {
- 
+
   return (
     <>
-      
-      <p >
-       Scaffolding
-      </p>
+      <GlobalProvider>
+        <Home />
+      </GlobalProvider>
     </>
+
+
   )
 }
 
