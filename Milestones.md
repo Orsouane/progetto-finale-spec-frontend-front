@@ -16,7 +16,7 @@
 
 
 # Milestone 3: Search, Filter, Sort
-Aggiungi barra di ricerca (filtra per title)
+Aggiungi barra di ricerca (filtra per title)✅
 
 Aggiungi filtro per category
 

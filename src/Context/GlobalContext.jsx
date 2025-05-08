@@ -4,9 +4,10 @@ const url = import.meta.env.VITE_URL;
 const GlobalContext = createContext()
 function GlobalProvider({children}) {
 const [records,setRecords]=useState([])
-    const getData = async () => {
-  
-       try {
+ 
+//! GET DI TUTTI I DATI
+ const getData = async () => {
+    try {
         const response = await fetch(url) 
         const data = await response.json()
         setRecords(data)
