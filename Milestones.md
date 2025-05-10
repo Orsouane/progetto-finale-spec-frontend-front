@@ -21,8 +21,8 @@ Aggiungi filtro per category
 
 Aggiungi ordinamento A-Z / Z-A per title e category
 
- # Milestone 4: Detail Page
-Crea pagina dettaglio con: title, category, price, description, brand, ecc.
+ # Milestone 4: Detail Page ✅
+Crea pagina dettaglio con: title, category, price, description, developer, rating,image
 
 Link dalla lista alla pagina dettaglio
 

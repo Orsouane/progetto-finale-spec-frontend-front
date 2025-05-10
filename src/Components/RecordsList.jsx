@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import { GlobalContext } from "../Context/GlobalContext"
 import Card from "./Card"
 function RecordsList() {
-  const records = useContext(GlobalContext)
+  const {records} = useContext(GlobalContext)
   const [query, setQuery] = useState("")
   const [select, setSelect] = useState("Select by categories")
   const [order, setOrder] = useState("Order by")
