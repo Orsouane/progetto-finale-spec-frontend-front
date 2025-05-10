@@ -1,6 +1,7 @@
 import React, { useEffect,useMemo,useState } from 'react'
 import { useContext } from 'react';
 import { GlobalContext } from "../Context/GlobalContext"
+import Comparator from './Comparator';
 import Card from "./Card"
 function RecordsList() {
   const {records} = useContext(GlobalContext)
@@ -76,21 +77,19 @@ function RecordsList() {
         </label>
         <input type="text" className='border mt-3 ml-1 ' value={query} onChange={handleInput} />
       </div>
-            {/* Select by category */}
+       
       <section className='flex justify-between my-2'>
-   
-            
+       {/* Select by category */}
       <select name="categories" id="categories" onChange={handleSelect} className='border '>
         <option value="Select by categories">All categories</option>
         {
          filtredCategory.map((el,index)=>{
           return (
             <option value={el} key={index}>{el}</option>
-          )
-         })
-        }
-        
+          ) })
+        }  
       </select>
+       {/* Orderby */}
        <select name="" id="" className='border' onChange={handleOrder}>
          <option value="">Order by</option>
          <option value="Title A-Z" >Title A-Z</option>
@@ -104,7 +103,7 @@ function RecordsList() {
           <Card record={record} />
         </div>)
       }):" No games founded"}
-
+     <Comparator orderArray={orderArray}/>
     </div>
   )
 }

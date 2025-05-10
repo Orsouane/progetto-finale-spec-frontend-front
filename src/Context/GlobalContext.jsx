@@ -3,9 +3,15 @@ import React from 'react'
 const url = import.meta.env.VITE_URL;
 const GlobalContext = createContext()
 function GlobalProvider({children}) {
+  //*all games list 
 const [records,setRecords]=useState([])
-  const [gameDetail, setGameDetail]=useState(null)
- 
+  //*Game to show it details
+const [gameDetail, setGameDetail]=useState(null)
+//*Game to compare
+ //?#1
+ const [compare, setCompare] = useState(localStorage.getItem('compare') || "Add to compare");
+  //?#2
+  const [compare2, setCompare2] = useState(localStorage.getItem('compare2') || "Add to compare");
 //! GET DI TUTTI I DATI
   const getData = useCallback(async () => {
     try {
@@ -33,8 +39,9 @@ const [records,setRecords]=useState([])
       console.log("errore nel recupero dei dati", error)
     }
   },[]) 
+
   return (
-    <GlobalContext.Provider value={{ records, gameDetail, getGame }}>
+    <GlobalContext.Provider value={{ records, gameDetail, getGame, compare, setCompare, compare2, setCompare2 }}>
     {children}
    </GlobalContext.Provider>
   )
