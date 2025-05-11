@@ -1,9 +1,11 @@
-import React, { useEffect,useMemo,useState } from 'react'
+import React, {useMemo,useState } from 'react'
 import { useContext } from 'react';
 import { GlobalContext } from "../Context/GlobalContext"
 import Comparator from './Comparator';
-import Card from "./Card"
+import GameCard from "./GameCard"
+
 function RecordsList() {
+
   const {records} = useContext(GlobalContext)
   const [query, setQuery] = useState("")
   const [select, setSelect] = useState("Select by categories")
@@ -23,6 +25,7 @@ function RecordsList() {
  e.preventDefault() 
  setOrder(e.target.value)
 }
+
   //! Barra di ricerca per cercare nei titoli (title)
   let filteredRecordsByTitle =useMemo(()=>{
     return (records.filter(record => record.title.toLocaleLowerCase().includes(query.toLocaleLowerCase())))
@@ -98,9 +101,10 @@ function RecordsList() {
          <option value="Category Z-A">Category Z-A</option>
        </select>
      </section>
-      {orderArray.length> 0 ? orderArray.map((record, index) => {
+      {orderArray.length> 0 ? orderArray.map((game, index) => {
         return (<div key={index}>
-          <Card record={record} />
+          <GameCard game={game}
+                />
         </div>)
       }):" No games founded"}
      <Comparator orderArray={orderArray}/>

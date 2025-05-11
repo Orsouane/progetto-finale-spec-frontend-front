@@ -1,9 +1,14 @@
-import React, {useContext } from 'react'
+import React, {useContext, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { GlobalContext } from '../Context/GlobalContext'
 function Comparator({ orderArray }) {
     const navigate=useNavigate()
     const { compare, setCompare, compare2, setCompare2 }= useContext(GlobalContext)
+  // Resettare il compare al refresh ()
+  useEffect(() => {
+    setCompare("Add to compare")
+    setCompare2("Add to compare")
+  }, [])
 //* function to navigate to compare page 
     const handleCompare = (e) =>{
              e.preventDefault()

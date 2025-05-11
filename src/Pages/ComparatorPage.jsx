@@ -9,10 +9,10 @@ function ComparatorPage() {
 
     return (
         <section>
-            <section className='flex'>
+            {firstElement && secondElement ? 
+             (  <>      
+                <section className='flex'>
                 <div>
-                    {firstElement && (
-                        <>
                             <p>title:{firstElement.title}</p>
                             <p>category : {firstElement.category}</p>
                             <p>developer :{firstElement.developer}</p>
@@ -20,14 +20,9 @@ function ComparatorPage() {
                             <p> rating : {firstElement.rating}</p>
                             <p> releaseYear : {firstElement.releaseYear}</p>
                             <p> price :{firstElement.price}$</p>
-                            <p> description :{firstElement.description}</p>
-                        </>
-                        )
-                    }
+                            <p> description :{firstElement.description}</p>  
                 </div>
                 <div>
-                    {secondElement && (
-                        <>
                             <p>title:{secondElement.title}</p>
                             <p>category : {secondElement.category}</p>
                             <p>developer :{secondElement.developer}</p>
@@ -36,13 +31,13 @@ function ComparatorPage() {
                             <p> releaseYear : {secondElement.releaseYear}</p>
                             <p> price :{secondElement.price}$</p>
                             <p> description :{secondElement.description}</p>
-                        </>)
-                    }
+                     
+                   
                 </div>
             </section>
             <section className='mt-2'>
-                { firstElement&& secondElement&& (
-                    <>
+             
+                 
                      <p>{firstElement.title} is {firstElement.description} developed by {firstElement.developer} and released in {firstElement.releaseYear}. On the other hand, {secondElement.title} is {secondElement.description} developed by {secondElement.developer} and released in {secondElement.releaseYear}.</p>
 
                 <div className='w-fit m-auto mt-10'>
@@ -86,12 +81,13 @@ function ComparatorPage() {
                         </tbody>
                     </table>
                 </div>
-                    </>
-                )}
+                  
+              
 
                 
                
-            </section>
+            </section>  
+                    </>) : "not okay "}
         </section>
     )
 }
