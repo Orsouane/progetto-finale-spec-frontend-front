@@ -22,25 +22,20 @@ const [gameDetail, setGameDetail]=useState(null)
       const response = await fetch(url)
       const data = await response.json()
       setRecords(data)
-      // console.log(records)
-      // console.log(data)
     } catch (error) {
-      console.log("errore nel recupero dei dati", error)
+      console.error("errore nel recupero dei dati", error)
     }
   },[]) 
     useEffect(()=>{getData()},[])
  
   //! GET one game 
-  // const {id} = useParams()
   const getGame = useCallback(async (id) => {
     try {
       const response = await fetch(`${url}/${id}`)
       const data = await response.json()
       setGameDetail(data.game)
-      console.log("data from get game detail", data.game)
-
-    } catch (error) {
-      console.log("errore nel recupero dei dati", error)
+     } catch (error) {
+      console.error("errore nel recupero dei dati", error)
     }
   },[]) 
 

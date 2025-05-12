@@ -1,21 +1,21 @@
-import React, {useMemo,useState } from 'react'
+import React, {useCallback, useMemo,useRef,useState } from 'react'
 import { useContext } from 'react';
 import { GlobalContext } from "../Context/GlobalContext"
 import Comparator from './Comparator';
 import GameCard from "./GameCard"
+import { debounce } from 'lodash';
 
 function RecordsList() {
 
   const {records} = useContext(GlobalContext)
   const [query, setQuery] = useState("")
+  const RefSearch=useRef("")
   const [select, setSelect] = useState("Select by categories")
   const [order, setOrder] = useState("Order by")
 
-  const handleInput = (e) => {
-    e.preventDefault()
-    setQuery(e.target.value)
-    console.log(query)
- }
+ 
+
+
 
   const handleSelect = (e)=>{
         e.preventDefault() 
@@ -28,25 +28,32 @@ function RecordsList() {
 }
 
   //! Barra di ricerca per cercare nei titoli (title)
+  //*Debounce per la ricerca : 
+  const debounceSearch = useCallback(debounce(setQuery, 800), [])
+  //* la lista dei giochi aggiornata dopo e durante la ricerca 
   let filteredRecordsByTitle =useMemo(()=>{
     return (records.filter(record => record.title.toLocaleLowerCase().includes(query.toLocaleLowerCase())))
   }, [query,records])
 
-  //! select per selezionare le categorie 
+  //!Creazione array  di categorie senza duplicate  
+  let filtredCategory = [];
+  filteredRecordsByTitle.forEach(el => {
+    if (!filtredCategory.includes(el.category)) {
+      filtredCategory.push(el.category)
+    }
+  })
+  //! select per selezionare le categorie
+  //* la lista dei giochi aggiornata dopo il selezionamento della categoria
   let finalFilter = useMemo(() => {
     return (
       select === "Select by categories" ? filteredRecordsByTitle : filteredRecordsByTitle.filter(el => el.category === select)
     )
   }, [select, filteredRecordsByTitle])
 
-  //!Creazione array  di categorie senza duplicate  
-  let filtredCategory = [];
-  filteredRecordsByTitle.forEach(el => {
-    if (!filtredCategory.includes(el.category)) {
-      filtredCategory.push(el.category)}
-  })
+
  
 //!Order Array
+//*Ordinare la lista dei giochi 
   let orderArray = useMemo(() => {
     const ArrayOrdinato = [...finalFilter]
     if (order === "Title A-Z") {
@@ -79,7 +86,7 @@ function RecordsList() {
         <label>
           Search by Title
         </label>
-        <input type="text" className='border mt-3 ml-1 ' value={query} onChange={handleInput} />
+       <input type="text" className='border mt-3 ml-1 ' ref={RefSearch} onChange={e => debounceSearch(e.target.value)} />
       </div>
        
       <section className='flex justify-between my-2'>
