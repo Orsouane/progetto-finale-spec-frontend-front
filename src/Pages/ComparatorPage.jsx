@@ -3,7 +3,7 @@ import { GlobalContext } from '../Context/GlobalContext'
 
 function ComparatorPage() {
     const { records, compare, compare2 } = useContext(GlobalContext);
-    const chiave = ["title", "category", "developer", "image", "rating", "releaseYear", "price", "description"]
+    const chiave = ["title", "category", "developer", "rating", "releaseYear", "price", "description"]
     //* Prende l'elemento che ha il nome uguale a compare1/compare2
     const firstElement = records.find(el => el.title === compare);
     const secondElement = records.find(el => el.title === compare2);
@@ -12,19 +12,23 @@ function ComparatorPage() {
         <section>
             {firstElement && secondElement ? 
              (  <>      
-                <section className='flex justify-center'>
-                <div>
-                            {chiave.map((el, index) => 
-                            <div key={index} className='flex bg-red-200 justify-center gap-20 '> 
-                            <div className='bg-blue-900 w-60'>
-                              {`${el}:${firstElement[el]}`}    
+                <section className='flex'>
+                <div>     
+                          <div>
+                                <img src={firstElement.image} /> 
+                               {chiave.map((el, index) => 
+                            <div key={index}> 
+                            {`${el}:${firstElement[el]}`}  </div>)}
+                          </div>
+                         
+                
+                            <div>
+                                <img src={secondElement.image} />  {chiave.map((el, index) => <p key={index}> {`${el}:${secondElement[el]}`}  </p>)}
                             </div>
-                              <div className='bg-red-900 w-60'>
-                                {`${el}:${secondElement[el]}`} 
-                              </div>
-                                    
-                            </div>)}
-                             </div>
+                          
+                      
+                   
+                </div>
             </section>
             <section className='mt-2'>
              
