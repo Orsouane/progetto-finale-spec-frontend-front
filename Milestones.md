@@ -16,31 +16,32 @@
 
 # Milestone 3: Search, Filter, Sort✅
 Aggiungi barra di ricerca (filtra per title)
-
 Aggiungi filtro per category 
-
 Aggiungi ordinamento A-Z / Z-A per title e category
+🚩Requisiti Aggiuntivi (Facoltativi) :
+Gestione degli stati vuoti:Nessun risultato trovato
 
  # Milestone 4: Detail Page ✅
 Crea pagina dettaglio con: title, category, price, description, developer, rating,image
+ Link dalla lista alla pagina dettaglio
 
-Link dalla lista alla pagina dettaglio
+# Milestone 5: Compare ✅
+Creato componente comparatore
+(Permetti selezione di 2 record direttamente dalla lista)
+   -Visualizza caratteristiche in una pagina speciale
+🚩Requisiti Aggiuntivi (Facoltativi) :
+Nessun elemento selezionato nel comparatore
+# Milestone 6: Favourites ✅
+- funzionalità “aggiungi/rimuovi preferito” :
+   -sezione sempre visibile per i preferiti
 
-# Milestone 5: Compare
-Crea componente comparatore
+🚩Requisiti Aggiuntivi (Facoltativi) : 
+-Stato persistente durante la navigazione 
+-Gestione degli stati vuoti, come
+Lista preferiti vuota
 
-Permetti selezione di 2 record da lista o dettaglio
+# Milestone 7: Rifiniture 
 
-Visualizza caratteristiche affiancate
-
-# Milestone 6: Favourites
-Aggiungi funzionalità “aggiungi/rimuovi preferito”
-
-Sidebar o sezione sempre visibile per i preferiti
-
-Stato persistente durante la navigazione
-
-# Milestone 7: Rifiniture
 Pulizia codice, layout responsivo, gestione errori fetch
 
 Test funzionalità principali (search, filtro, dettagli, preferiti, comparatore)

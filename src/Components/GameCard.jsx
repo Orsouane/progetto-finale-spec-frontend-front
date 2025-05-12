@@ -15,7 +15,6 @@ function Card({ game }) {
        localStorage.setItem('favouriteGames', JSON.stringify(updated));
      } };
     
-
  return (
     <div className='flex  border gap-1'>
       <NavLink to={`/games/${id}`}><span className='font-bold'>title:</span>{game.title}-</NavLink>
