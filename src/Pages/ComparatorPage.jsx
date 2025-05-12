@@ -3,7 +3,7 @@ import { GlobalContext } from '../Context/GlobalContext'
 
 function ComparatorPage() {
     const { records, compare, compare2 } = useContext(GlobalContext);
-    
+    const chiave = ["title", "category", "developer", "image", "rating", "releaseYear", "price", "description"]
     //* Prende l'elemento che ha il nome uguale a compare1/compare2
     const firstElement = records.find(el => el.title === compare);
     const secondElement = records.find(el => el.title === compare2);
@@ -12,29 +12,19 @@ function ComparatorPage() {
         <section>
             {firstElement && secondElement ? 
              (  <>      
-                <section className='flex'>
+                <section className='flex justify-center'>
                 <div>
-                            <p>title:{firstElement.title}</p>
-                            <p>category : {firstElement.category}</p>
-                            <p>developer :{firstElement.developer}</p>
-                            <img src={firstElement.image} />
-                            <p> rating : {firstElement.rating}</p>
-                            <p> releaseYear : {firstElement.releaseYear}</p>
-                            <p> price :{firstElement.price}$</p>
-                            <p> description :{firstElement.description}</p>  
-                </div>
-                <div>
-                            <p>title:{secondElement.title}</p>
-                            <p>category : {secondElement.category}</p>
-                            <p>developer :{secondElement.developer}</p>
-                            <img src={secondElement.image} />
-                            <p> rating : {secondElement.rating}</p>
-                            <p> releaseYear : {secondElement.releaseYear}</p>
-                            <p> price :{secondElement.price}$</p>
-                            <p> description :{secondElement.description}</p>
-                     
-                   
-                </div>
+                            {chiave.map((el, index) => 
+                            <div key={index} className='flex bg-red-200 justify-center gap-20 '> 
+                            <div className='bg-blue-900 w-60'>
+                              {`${el}:${firstElement[el]}`}    
+                            </div>
+                              <div className='bg-red-900 w-60'>
+                                {`${el}:${secondElement[el]}`} 
+                              </div>
+                                    
+                            </div>)}
+                             </div>
             </section>
             <section className='mt-2'>
              
@@ -94,3 +84,11 @@ function ComparatorPage() {
 }
 
 export default ComparatorPage
+    // < p > title: { firstElement.title }</p >
+    //                         <p>category : {firstElement.category}</p>
+    //                         <p>developer :{firstElement.developer}</p>
+    //                         <img src={firstElement.image} />
+    //                         <p> rating : {firstElement.rating}</p>
+    //                         <p> releaseYear : {firstElement.releaseYear}</p>
+    //                         <p> price :{firstElement.price}$</p>
+    //                         <p> description :{firstElement.description}</p>  
