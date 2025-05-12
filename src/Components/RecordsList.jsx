@@ -14,6 +14,7 @@ function RecordsList() {
   const handleInput = (e) => {
     e.preventDefault()
     setQuery(e.target.value)
+    console.log(query)
  }
 
   const handleSelect = (e)=>{

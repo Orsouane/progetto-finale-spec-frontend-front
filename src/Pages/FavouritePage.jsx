@@ -13,16 +13,16 @@ function FavouritePage() {
     }
     return (
         <div>
-            {favouriteGames.map((favourite,index)=>{
+            {favouriteGames.length !==0 ? favouriteGames.map((favourite,index)=>{
              return    <div key={index} className='border'>
                   <p>{favourite.title}</p>
                  <p>{favourite.category}</p>
                  <button className='cursor-pointer' onClick={()=>handleDeleteFavourite(favourite)}>Delete</button>
             </div>  
-            }
+           }
             ) 
           
-        }
+                : "Favorites list is empty" }
         </div>
     );
 }

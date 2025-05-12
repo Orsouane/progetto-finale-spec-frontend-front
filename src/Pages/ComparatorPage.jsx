@@ -87,7 +87,7 @@ function ComparatorPage() {
                 
                
             </section>  
-                    </>) : "not okay "}
+                </>) : "No item selected in the comparator"}
         </section>
     )
 }

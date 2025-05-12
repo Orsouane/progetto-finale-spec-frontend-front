@@ -19,7 +19,7 @@ Aggiungi barra di ricerca (filtra per title)
 Aggiungi filtro per category 
 Aggiungi ordinamento A-Z / Z-A per title e category
 🚩Requisiti Aggiuntivi (Facoltativi) :
-Gestione degli stati vuoti:Nessun risultato trovato
+Gestione degli stati vuoti:No games founded
 
  # Milestone 4: Detail Page ✅
 Crea pagina dettaglio con: title, category, price, description, developer, rating,image
@@ -30,7 +30,8 @@ Creato componente comparatore
 (Permetti selezione di 2 record direttamente dalla lista)
    -Visualizza caratteristiche in una pagina speciale
 🚩Requisiti Aggiuntivi (Facoltativi) :
-Nessun elemento selezionato nel comparatore
+No item selected in the comparator
+
 # Milestone 6: Favourites ✅
 - funzionalità “aggiungi/rimuovi preferito” :
    -sezione sempre visibile per i preferiti
@@ -38,7 +39,8 @@ Nessun elemento selezionato nel comparatore
 🚩Requisiti Aggiuntivi (Facoltativi) : 
 -Stato persistente durante la navigazione 
 -Gestione degli stati vuoti, come
-Lista preferiti vuota
+Favorites list is empty
+
 
 # Milestone 7: Rifiniture 
 

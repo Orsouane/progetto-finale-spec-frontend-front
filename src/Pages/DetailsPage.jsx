@@ -1,20 +1,16 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import { GlobalContext } from '../Context/GlobalContext'
-import { useContext,useEffect,useState } from 'react'
+import { useContext,useEffect } from 'react'
 function DetailsPage() {
     const { id } = useParams()
     const { gameDetail, getGame }=useContext(GlobalContext)
- console.log("game data ",gameDetail) 
     useEffect(() => { getGame(id); }, [id, getGame]);
        
-           
-     
-   
   return (
     <div>
      {gameDetail && 
-     <div>
+    ( <div>
           <p>title:{gameDetail.title}</p>
           <p>category : {gameDetail.category}</p>
           <p>developer :{gameDetail.developer}</p>
@@ -24,7 +20,7 @@ function DetailsPage() {
           <p> price :{gameDetail.price}$</p>
           <p> description :{gameDetail.description}</p>
 
-     </div>
+     </div>)
    
      
      }
