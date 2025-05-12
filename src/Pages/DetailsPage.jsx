@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import { GlobalContext } from '../Context/GlobalContext'
 import { useContext,useEffect } from 'react'
 function DetailsPage() {
+  const chiave = ["title", "category", "developer", "image", "rating", "releaseYear", "price", "description"]
     const { id } = useParams()
     const { gameDetail, getGame }=useContext(GlobalContext)
     useEffect(() => { getGame(id); }, [id, getGame]);
@@ -10,21 +11,10 @@ function DetailsPage() {
   return (
     <div>
      {gameDetail && 
-    ( <div>
-          <p>title:{gameDetail.title}</p>
-          <p>category : {gameDetail.category}</p>
-          <p>developer :{gameDetail.developer}</p>
-          <img src={gameDetail.image} />
-          <p> rating : {gameDetail.rating}</p>
-          <p> releaseYear : {gameDetail.releaseYear}</p>
-          <p> price :{gameDetail.price}$</p>
-          <p> description :{gameDetail.description}</p>
-
-     </div>)
-   
-     
-     }
-    </div>
+    (  <div> 
+        {chiave.map((el,index) => <p key={index}> {`${el}:${gameDetail[el]}`}  </p>)}
+       </div>)}
+      </div>
   )
 }
 

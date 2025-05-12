@@ -3,7 +3,8 @@ import { GlobalContext } from '../Context/GlobalContext'
 
 function ComparatorPage() {
     const { records, compare, compare2 } = useContext(GlobalContext);
-
+    
+    //* Prende l'elemento che ha il nome uguale a compare1/compare2
     const firstElement = records.find(el => el.title === compare);
     const secondElement = records.find(el => el.title === compare2);
 

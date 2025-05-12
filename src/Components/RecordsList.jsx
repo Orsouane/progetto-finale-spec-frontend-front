@@ -4,6 +4,9 @@ import { GlobalContext } from "../Context/GlobalContext"
 import Comparator from './Comparator';
 import GameCard from "./GameCard"
 import { debounce } from 'lodash';
+import SearchBar from './SearchBar';
+import SelectOrder from './SelectOrder';
+import SelectCategory from './SelectCategory';
 
 function RecordsList() {
 
@@ -13,19 +16,6 @@ function RecordsList() {
   const [select, setSelect] = useState("Select by categories")
   const [order, setOrder] = useState("Order by")
 
- 
-
-
-
-  const handleSelect = (e)=>{
-        e.preventDefault() 
-        setSelect(e.target.value)
-  }
-
-   const handleOrder=(e)=>{
- e.preventDefault() 
- setOrder(e.target.value)
-}
 
   //! Barra di ricerca per cercare nei titoli (title)
   //*Debounce per la ricerca : 
@@ -50,9 +40,7 @@ function RecordsList() {
     )
   }, [select, filteredRecordsByTitle])
 
-
- 
-//!Order Array
+  //!Order Array
 //*Ordinare la lista dei giochi 
   let orderArray = useMemo(() => {
     const ArrayOrdinato = [...finalFilter]
@@ -81,40 +69,24 @@ function RecordsList() {
 
  return (
     <div className='w-fit m-auto mt-10 ' >
-      <div className='w-fit m-auto'>
-       {/* search by title */}
-        <label>
-          Search by Title
-        </label>
-       <input type="text" className='border mt-3 ml-1 ' ref={RefSearch} onChange={e => debounceSearch(e.target.value)} />
-      </div>
+      <section className='w-fit m-auto'>
+          {/* search by title */}
+          <SearchBar debounceSearch={debounceSearch} RefSearch={RefSearch}/>
+      </section>
        
       <section className='flex justify-between my-2'>
-       {/* Select by category */}
-      <select name="categories" id="categories" onChange={handleSelect} className='border '>
-        <option value="Select by categories">All categories</option>
-        {
-         filtredCategory.map((el,index)=>{
-          return (
-            <option value={el} key={index}>{el}</option>
-          ) })
-        }  
-      </select>
-       {/* Orderby */}
-       <select name="" id="" className='border' onChange={handleOrder}>
-         <option value="">Order by</option>
-         <option value="Title A-Z" >Title A-Z</option>
-         <option value="Category A-Z">category A-Z</option>
-         <option value="Title Z-A" >Title Z-A</option>
-         <option value="Category Z-A">Category Z-A</option>
-       </select>
+          {/* Select by category */}
+          <SelectCategory setSelect={setSelect} filtredCategory={filtredCategory}/>
+          {/* Orderby */}
+          <SelectOrder setOrder={setOrder}/>
      </section>
+     {/* vizualizzare la lista dei giochi */}
       {orderArray.length> 0 ? orderArray.map((game, index) => {
         return (<div key={index}>
-          <GameCard game={game}
-                />
-        </div>)
+                    <GameCard game={game}/>        
+                </div>)
       }):" No games founded"}
+     {/* la selezione dei giochi da comparare */}
      <Comparator orderArray={orderArray}/>
     </div>
   )
