@@ -16,23 +16,31 @@ function Comparator({ orderArray }) {
             }
 
   return (
-    <div className='flex rounded-md w-full gap-1 my-10   bg-[#1F2937] text-white p-2  '>
-      <div className='flex justify-between w-full mx-2 '>
-        <div className='flex flex-col gap-2' >
-            <p className='text-sm'>Comparing two Games</p>
-            <div className='flex gap-1'>
-            <select onChange={e => setCompare(e.target.value)} className='bg-[#8E95A2] rounded-md text-xs p-1'>
-              <option value="">{compare}</option>
+    <div className='flex rounded-md max-w-[600px] gap-1 my-10  bg-[#1F2937] text-white p-2  m-auto '>
+      <div className='flex flex-col justify-between w-full   '>
+            
+              {/*Title  Comparing two Games */}
+          <div className='pb-2 '>
+           <p className='text-sm text-center font-semibold'>Comparing two Games</p> 
+          </div>
+          
+              {/* Select to compare */}
+            <div className='flex  gap-5 justify-center'>
 
-              {/* options first game */}
+               {/* options first game */}
+            <select onChange={e => setCompare(e.target.value)} className='bg-[#8E95A2] rounded-md text-xs p-1  cursor-pointer'>
+              <option value="">{compare}</option>
+  
               {
                 orderArray.map((element, index) => <option value={element.title} key={index}>{element.title}   </option>
 
                 )
               }
             </select>
+
             {/* options  second game */}
-            <select onChange={e => setCompare2(e.target.value)} className='bg-[#8E95A2] rounded-md text-xs p-1'>
+
+            <select onChange={e => setCompare2(e.target.value)} className='bg-[#8E95A2] rounded-md text-xs p-1 cursor-pointer'>
               <option value="">{compare2}</option>
 
               {
@@ -40,19 +48,16 @@ function Comparator({ orderArray }) {
 
                 )
               }
-            </select>
+            </select> 
+            {/* button to navigate to compare page */}
+            <button onClick={handleCompare} className=' my-1 mx-2 bg-[#8E95A2] hover:bg-[#60A5FA] rounded-md text-xs p-1 cursor-pointer w-fit '>Compare</button>
             </div>
-           
-          </div>
-        
-        <div className='flex flex-col justify-center'>
-          {/* button to navigate to compare page */}
-          <button onClick={handleCompare} className=' my-1 mx-2 bg-[#8E95A2] rounded-md text-xs p-1'>Compare</button>
-        </div>
+           </div>
+      
       </div>
      
    
-    </div>
+ 
   )
 }
 

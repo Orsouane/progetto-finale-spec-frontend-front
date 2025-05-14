@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import { GlobalContext } from '../Context/GlobalContext';
 import DeleteButton from '../Components/UiComponents/DeleteButton';
+import EmptyPageFav from '../Components/UiComponents/EmptyPageFav';
 function FavouritePage() {
     const { favouriteGames, setFavouriteGames } = useContext(GlobalContext);
  useEffect(()=>{console.log(favouriteGames)},[favouriteGames])
@@ -12,16 +13,18 @@ function FavouritePage() {
         return deleteFavourite
     }
     return (
-        <div>
+        
+        <div className='grid grid-cols-3 w-full  m-auto  '>
             {favouriteGames.length !==0 ? favouriteGames.map((favourite,index)=>{
-                return <div className='bg-[#1F2937] w-fit p-2 rounded-md m-5' key={index}>
+                return (
+                           <div className='bg-[#1F2937] w-[400px] p-2 rounded-md m-5  ' key={index}>
                     <div className='text-white text-sm'>
                      <img src={favourite.image}/>
                      <div className='mt-3'>
                            <p> <span className='text-sm  text-[#60A5FA]'>Title : </span> {favourite.title}</p>
                         <p> <span className='text-sm  text-[#60A5FA]'> Rating : </span>
                   {favourite.description}</p>   
-                     </div>
+                     
                  
                     </div>
                    
@@ -31,10 +34,14 @@ function FavouritePage() {
                    </div>
                     
             </div>  
+                    </div>
+                   
+                )
+             
            }
             ) 
           
-                : "Favorites list is empty" }
+                : <EmptyPageFav/> }
         </div>
     );
 }

@@ -1,5 +1,6 @@
 import React, {useCallback, useMemo,useRef,useState } from 'react'
 import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { GlobalContext } from "../Context/GlobalContext"
 import Comparator from './Comparator';
 import GameCard from "./GameCard"
@@ -7,10 +8,11 @@ import { debounce } from 'lodash';
 import SearchBar from './SearchBar';
 import SelectOrder from './SelectOrder';
 import SelectCategory from './SelectCategory';
-import FavouriteList from "./FavouriteList"
+import FavouriteList from "./FavouriteButton"
+import SearchError from './UiComponents/SearchError';
 
 function RecordsList() {
-
+  const navigate=useNavigate()
   const {records} = useContext(GlobalContext)
   const [query, setQuery] = useState("")
   const RefSearch=useRef("")
@@ -68,35 +70,36 @@ function RecordsList() {
     return finalFilter
   }, [order, finalFilter])
 
- return (
-    <div className=' mx-20 ' >
-       <div className="flex justify-between pt-3">
-       <div className='text-[#60A5FA]'>BoolGame store</div>
-              <FavouriteList/>
-             </div>
-      <section className=''>
+  return (<>
+    <div className=' m-4 ' >
+      <section className='mb-4'>
           {/* search by title */}
           <SearchBar debounceSearch={debounceSearch} RefSearch={RefSearch}/>
       </section>
        
-      <section className='flex justify-between my-2'>
+      <section className='flex justify-between gap-2 max-w-[800px] m-auto mb-4 '>
           {/* Select by category */}
           <SelectCategory setSelect={setSelect} filtredCategory={filtredCategory}/>
+      
+
           {/* Orderby */}
           <SelectOrder setOrder={setOrder}/>
      </section>
+      {/* la selezione dei giochi da comparare */}
+      <Comparator orderArray={orderArray} />
      {/* vizualizzare la lista dei giochi */}
      <section className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 '>
       {orderArray.length> 0 ? orderArray.map((game, index) => {
-        return (<div key={index} className=''>
+        return (<div key={index} >
                     <GameCard game={game} />        
                 </div>)
-      }):" No games founded"} 
+      }):<SearchError/>} 
      </section>
      
-     {/* la selezione dei giochi da comparare */}
-     <Comparator orderArray={orderArray}/>
-    </div>
+   
+    </div> 
+  
+     </>
   )
 }
 
