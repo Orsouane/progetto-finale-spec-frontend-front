@@ -4,7 +4,7 @@ import DetailsPage from "./Pages/DetailsPage"
 import ComparatorPage from "./Pages/ComparatorPage"
 import FavouritePage from "./Pages/FavouritePage"
 import DefaultLayout from "../Layout/DefaultLayout"
-import RecordsList from "./Components/RecordsList"
+import RecordsList from "./Pages/RecordsList"
 function App() {
 
   return (

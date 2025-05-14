@@ -4,7 +4,7 @@ function EmptyPageFav() {
     const navigate = useNavigate()
     return (
 
-        <section className='w-[1000px] ml-120 mt-50 '>
+        <section className='m-5'>
             <div className=' text-center'>
                 <div className='flex-col flex  '>
                     <p className='font-bold  text-5xl  text-red-900'>No games found. Want to add one now?

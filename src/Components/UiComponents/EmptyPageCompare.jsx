@@ -4,7 +4,7 @@ function AddComponent() {
     const navigate = useNavigate()
   return (
 
-      <section className='w-[1000px] ml-10 mt-50 '>
+      <section className=' m-5 '>
           <div className=' text-center'>
               <div className='flex-col flex  '>
                   <p className='font-bold  text-5xl  text-red-900'>At least two games required. Would you like to add them now?

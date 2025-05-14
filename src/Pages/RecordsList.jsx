@@ -1,23 +1,23 @@
-import React, {useCallback, useMemo,useRef,useState } from 'react'
+import React, {useCallback, useEffect, useMemo,useRef,useState } from 'react'
 import { useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+
 import { GlobalContext } from "../Context/GlobalContext"
-import Comparator from './Comparator';
-import GameCard from "./GameCard"
+import Comparator from "../Components/Comparator"
+import GameCard from "../Components/GameCard"
 import { debounce } from 'lodash';
-import SearchBar from './SearchBar';
-import SelectOrder from './SelectOrder';
-import SelectCategory from './SelectCategory';
-import FavouriteList from "./FavouriteButton"
-import SearchError from './UiComponents/SearchError';
+import SearchBar from '../Components/SearchBar';
+import SelectOrder from '../Components/SelectOrder';
+import SelectCategory from '../Components/SelectCategory';
+import SearchError from '../Components/UiComponents/SearchError';
 
 function RecordsList() {
-  const navigate=useNavigate()
+
   const {records} = useContext(GlobalContext)
   const [query, setQuery] = useState("")
   const RefSearch=useRef("")
   const [select, setSelect] = useState("Select by categories")
   const [order, setOrder] = useState("Order by")
+
 
 
   //! Barra di ricerca per cercare nei titoli (title)
@@ -70,13 +70,25 @@ function RecordsList() {
     return finalFilter
   }, [order, finalFilter])
 
+
+  //! La lista di giochi da far vedere
+  const [GameToShow, setGameToShow] = useState(orderArray.slice(0, 6))
+   const loadMore= ()=>{
+   setGameToShow(prev => [...prev, ...orderArray.slice(prev.length, prev.length+6)])
+ }
+   const loadLess= ()=>{
+   setGameToShow(prev => prev.slice(0, prev.length - 6));
+ }
+  useEffect(() => { setGameToShow(orderArray.slice(0, 6)) }, [orderArray])
   return (<>
     <div className=' m-4 ' >
       <section className='mb-4'>
+        
           {/* search by title */}
           <SearchBar debounceSearch={debounceSearch} RefSearch={RefSearch}/>
       </section>
-       
+
+       {/* SELECT */}
       <section className='flex justify-between gap-2 max-w-[800px] m-auto mb-4 '>
           {/* Select by category */}
           <SelectCategory setSelect={setSelect} filtredCategory={filtredCategory}/>
@@ -86,15 +98,32 @@ function RecordsList() {
           <SelectOrder setOrder={setOrder}/>
      </section>
       {/* la selezione dei giochi da comparare */}
-      <Comparator orderArray={orderArray} />
+      <Comparator orderArray={GameToShow} />
+
      {/* vizualizzare la lista dei giochi */}
-     <section className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 '>
-      {orderArray.length> 0 ? orderArray.map((game, index) => {
+   
+      {GameToShow.length > 0 ? (<section className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 '> {GameToShow.map((game, index) => {
         return (<div key={index} >
-                    <GameCard game={game} />        
-                </div>)
-      }):<SearchError/>} 
-     </section>
+          <GameCard game={game} />
+        </div>)
+      }) }   </section>) :<SearchError/>} 
+    {/* Continuo a fare load finche non raggiungo tutta la lista dei giochi  */}
+      {
+        GameToShow.length<orderArray.length && (
+          <>
+            <button onClick={loadMore}>Load</button>
+         </>
+        
+        ) 
+      }
+
+      {/* dopo che vieni caricata la seconda pagina appaia un altro buttone che mi permette di redure la lilsta dei giochi da far vizualizzare */}
+      {GameToShow.length > 6 && GameToShow.length <= orderArray.length &&
+       (
+        <button onClick={loadLess}>LoadLess</button>
+      )}
+        
+      
      
    
     </div> 

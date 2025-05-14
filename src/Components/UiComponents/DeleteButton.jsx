@@ -4,7 +4,7 @@ function DeleteButton() {
   return (
    
         <button
-            className="group relative flex h-14  w-20  items-center justify-center overflow-hidden rounded-xl border-2 border-red-800 bg-red-400 hover:bg-red-600 text-xs" 
+            className="group relative flex h-14  w-20  items-center justify-center overflow-hidden rounded-xl border-2 border-red-800 bg-red-400 hover:bg-red-600 text-xs cursor-pointer" 
         >
             <p className='pr-2'>Delete</p>
             <div className=''>

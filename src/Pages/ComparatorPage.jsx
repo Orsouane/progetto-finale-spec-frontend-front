@@ -9,7 +9,7 @@ function ComparatorPage() {
 
     return (
         <section className='w-full m-auto '>
-            <section className='flex justify-center gap-100  w-[1600px] m-auto mt-20'>
+            <section className='flex justify-center gap-100 '>
                 
                 <div className=' p-2 rounded-md'>
                     {firstElement && secondElement ? (
