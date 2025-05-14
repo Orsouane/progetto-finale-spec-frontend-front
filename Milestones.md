@@ -7,6 +7,7 @@
 -installed librarys  : 
         -React-Router-dom   
         -Tailwind 
+        -react-icons
 # Milestone 2:  ✅
 -create component "RecordList.jsx" 
         -All'interno del componente, usato useEffect per fare il fetch dei dati dal backend.
@@ -19,8 +20,8 @@ Aggiungi barra di ricerca (filtra per title)
 Aggiungi filtro per category 
 Aggiungi ordinamento A-Z / Z-A per title e category
 🚩Requisiti Aggiuntivi (Facoltativi) :
-Debounce sulla ricerca
-Gestione degli stati vuoti:No games founded
+        -Debounce sulla ricerca
+        -Gestione degli stati vuoti:No games founded
 
  # Milestone 4: Detail Page ✅
 Crea pagina dettaglio con: title, category, price, description, developer, rating,image
@@ -31,20 +32,19 @@ Creato componente comparatore
 (Permetti selezione di 2 record direttamente dalla lista)
    -Visualizza caratteristiche in una pagina speciale
 🚩Requisiti Aggiuntivi (Facoltativi) :
-No item selected in the comparator
+      -Gestione degli stati vuoti:No item selected in the comparator
 
 # Milestone 6: Favourites ✅
 - funzionalità “aggiungi/rimuovi preferito” :
    -sezione sempre visibile per i preferiti
 
 🚩Requisiti Aggiuntivi (Facoltativi) : 
--Stato persistente durante la navigazione 
--Gestione degli stati vuoti, come
-Favorites list is empty
-
+        -Stato persistente durante la navigazione 
+        -Gestione degli stati vuoti:Favorites list is empty
+        
 
 # Milestone 7: Rifiniture 
-
-Pulizia codice, layout responsivo, gestione errori fetch
-
+-gestione errori fetch
+-Pulizia codice, 
+layout responsivo
 Test funzionalità principali (search, filtro, dettagli, preferiti, comparatore)

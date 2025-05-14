@@ -7,6 +7,7 @@ import { debounce } from 'lodash';
 import SearchBar from './SearchBar';
 import SelectOrder from './SelectOrder';
 import SelectCategory from './SelectCategory';
+import FavouriteList from "./FavouriteList"
 
 function RecordsList() {
 
@@ -68,8 +69,12 @@ function RecordsList() {
   }, [order, finalFilter])
 
  return (
-    <div className='w-fit m-auto mt-10 ' >
-      <section className='w-fit m-auto'>
+    <div className=' mx-20 ' >
+       <div className="flex justify-between pt-3">
+       <div className='text-[#60A5FA]'>BoolGame store</div>
+              <FavouriteList/>
+             </div>
+      <section className=''>
           {/* search by title */}
           <SearchBar debounceSearch={debounceSearch} RefSearch={RefSearch}/>
       </section>
@@ -81,11 +86,14 @@ function RecordsList() {
           <SelectOrder setOrder={setOrder}/>
      </section>
      {/* vizualizzare la lista dei giochi */}
+     <section className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 '>
       {orderArray.length> 0 ? orderArray.map((game, index) => {
-        return (<div key={index}>
-                    <GameCard game={game}/>        
+        return (<div key={index} className=''>
+                    <GameCard game={game} />        
                 </div>)
-      }):" No games founded"}
+      }):" No games founded"} 
+     </section>
+     
      {/* la selezione dei giochi da comparare */}
      <Comparator orderArray={orderArray}/>
     </div>

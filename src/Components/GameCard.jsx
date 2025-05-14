@@ -4,11 +4,17 @@ import AddFavourite from './AddFavourite'
 function Card({ game }) {
   const id=game.id
  return (
-    <div className='flex  border gap-1'>
-     <NavLink to={`/games/${id}`}> Details </NavLink>
-     <span className='font-bold'>title:</span> <span>{game.title}</span>
-     <span className='font-bold'>category : </span> <span>{game.category} </span> 
-    <AddFavourite game={game}/>
+   <div className='  mb-2 w-80 bg-[#1F2937] flex justify-between p-2 rounded-md m-auto '>
+   
+     <div className='flex flex-col gap-1 '>
+        <span className='font-bold text-white'>{game.title}</span>
+       <span className='text-xs text-[#60A5FA]  '>{game.category} </span> 
+     </div>
+     <div className='flex flex-col items-center'>
+       <NavLink to={`/games/${id}`} className=""> + </NavLink>
+       <AddFavourite game={game} />
+     </div>
+    
       </div>
      
   )

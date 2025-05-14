@@ -3,96 +3,109 @@ import { GlobalContext } from '../Context/GlobalContext'
 
 function ComparatorPage() {
     const { records, compare, compare2 } = useContext(GlobalContext);
-    const chiave = ["title", "category", "developer", "rating", "releaseYear", "price", "description"]
-    //* Prende l'elemento che ha il nome uguale a compare1/compare2
+
     const firstElement = records.find(el => el.title === compare);
     const secondElement = records.find(el => el.title === compare2);
 
     return (
-        <section>
-            {firstElement && secondElement ? 
-             (  <>      
-                <section className='flex'>
-                <div>     
-                          <div>
-                                <img src={firstElement.image} /> 
-                               {chiave.map((el, index) => 
-                            <div key={index}> 
-                            {`${el}:${firstElement[el]}`}  </div>)}
-                          </div>
-                         
+        <section className='w-full m-auto '>
+            <section className='flex justify-center gap-100  w-[1600px] m-auto mt-20'>
                 
-                            <div>
-                                <img src={secondElement.image} />  {chiave.map((el, index) => <p key={index}> {`${el}:${secondElement[el]}`}  </p>)}
+                <div className='bg-[#1F2937] w-92 p-2 rounded-md'>
+                   {firstElement && (
+                        <>  
+                            <img src={firstElement.image} />
+                            <div className='grid grid-cols-2 pb-2 pt-2'>
+                               
+                                 <p className='text-white text-sm'> <span className='text-sm  text-[#60A5FA]'>Title : </span>{firstElement.title}</p>
+                               
+                                 <p className='text-white text-sm'><span className='text-sm  text-[#60A5FA]'> Rating :</span>  {firstElement.rating}</p>
+                                
+                                 <p className='text-white text-sm'>  <span className='text-sm  text-[#60A5FA]'> ReleaseYear :</span>  {firstElement.releaseYear}</p>
+
+                                 <p className='text-white text-sm'>   <span className='text-sm  text-[#60A5FA]'> price : </span>   {firstElement.price}</p>
                             </div>
-                          
-                      
-                   
+                        </>
+                    )
+                    }
+                </div>
+                <div className='bg-[#1F2937] w-92 p-2 rounded-md'>
+                    {secondElement && (
+                        <>
+                            <img src={secondElement.image} />
+                            <div className='grid grid-cols-2 pb-2 pt-2'>
+                                <p className='text-white text-sm'> <span className='text-sm  text-[#60A5FA]'>Title : </span>{secondElement.title}</p>
+
+                                <p className='text-white text-sm'><span className='text-sm  text-[#60A5FA]'> Rating :</span>  {secondElement.rating}</p>
+
+                                <p className='text-white text-sm'>  <span className='text-sm  text-[#60A5FA]'> ReleaseYear :</span>  {secondElement.releaseYear}</p>
+
+                                <p className='text-white text-sm'>   <span className='text-sm  text-[#60A5FA]'> price : </span>   {secondElement.price}</p>
+                            </div>
+
+                           
+                        </>
+                    )
+                    }
                 </div>
             </section>
             <section className='mt-2'>
-             
-                 
-                     <p>{firstElement.title} is {firstElement.description} developed by {firstElement.developer} and released in {firstElement.releaseYear}. On the other hand, {secondElement.title} is {secondElement.description} developed by {secondElement.developer} and released in {secondElement.releaseYear}.</p>
+                {firstElement && secondElement && (
+                    <>
+                        <div className='bg-[#1F2937] p-2 text-white w-[800px] m-auto rounded-md'>
+                         <p>{firstElement.title} is {firstElement.description} developed by {firstElement.developer} and released in {firstElement.releaseYear}. On the other hand, {secondElement.title} is {secondElement.description} developed by {secondElement.developer} and released in {secondElement.releaseYear}.</p>
+                    </div>
+                       
 
-                <div className='w-fit m-auto mt-10'>
-                    <table className='w-70 text-center border'>
-                        <thead className='border'>
-                            <tr>
-                                <th>Game : </th>
-                                <th>{firstElement.title}</th>
-                                <th>{secondElement.title}</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <strong>Rating</strong>
-                                </td>
-                                <td style={{
-                                    backgroundColor: firstElement.rating < secondElement.rating ? 'lightcoral' : 'lightgreen'
-                                }} >{firstElement.rating}/10
-                                </td>
-                                <td style={{
-                                    backgroundColor: secondElement.rating < firstElement.rating ? 'lightcoral' : 'lightgreen'
-                                }}>{secondElement.rating}/10</td>
-                            </tr>
-                            <tr className='border'>
-                                <td>
-                                    <strong>Price</strong></td>
-                                <td style={{ backgroundColor: firstElement.price > secondElement.price ? "lightcoral" : "lightgreen" }}>{firstElement.price}$</td>
-                                <td style={{ backgroundColor: secondElement.price > firstElement.price ? "lightcoral" : "lightgreen" }}>{secondElement.price}$</td>
-                            </tr>
-                            <tr className='border'>
-                                <td>
-                                    <strong>ReleaseYear</strong></td>
-                                <td style={{
-                                    backgroundColor: firstElement.releaseYear < secondElement.releaseYear ? 'lightcoral' : 'lightgreen'
-                                }} >{firstElement.releaseYear}</td>
-                                <td style={{
-                                    backgroundColor: secondElement.releaseYear < firstElement.releaseYear ? 'lightcoral' : 'lightgreen'
-                                }} >{secondElement.releaseYear}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                  
-              
+                        <div className='w-fit  m-auto mt-10 bg-[#1F2937] p-3  rounded-md'>
+                            <table className='w-92 h-60 text-center border m-auto'>
+                                <thead className='border'>
+                                    <tr className='text-[#60A5FA]'>
+                                        <th >Game : </th>
+                                        <th>{firstElement.title}</th>
+                                        <th>{secondElement.title}</th>
+                                    </tr>
+                                </thead>
+                                <tbody >
+                                    <tr>
+                                        <td className='text-[#60A5FA]'>
+                                            <strong>Rating</strong>
+                                        </td>
+                                        <td style={{
+                                            backgroundColor: firstElement.rating < secondElement.rating ? 'red' : 'green'
+                                        }} className='text-white' >{firstElement.rating}
+                                        </td>
+                                        <td className='text-white' style={{
+                                            backgroundColor: secondElement.rating < firstElement.rating ? 'red' : 'green'
+                                        }}>{secondElement.rating}</td>
+                                    </tr>
+                                    <tr className='border'>
+                                        <td className='text-[#60A5FA]'>
+                                            <strong>Price</strong></td>
+                                        <td className='text-white' style={{ backgroundColor: firstElement.price > secondElement.price ? "red" : "green" }}>{firstElement.price}</td>
+                                        <td className='text-white' style={{ backgroundColor: secondElement.price > firstElement.price ? "red" : "green" }}>{secondElement.price}$</td>
+                                    </tr>
+                                    <tr className='border'>
+                                        <td className='text-[#60A5FA]'>
+                                            <strong>ReleaseYear</strong></td>
+                                        <td className='text-white' style={{
+                                            backgroundColor: firstElement.releaseYear < secondElement.releaseYear ? 'red' : 'green'
+                                        }} >{firstElement.releaseYear}</td>
+                                        <td className='text-white' style={{
+                                            backgroundColor: secondElement.releaseYear < firstElement.releaseYear ? 'red' : 'green'
+                                        }} >{secondElement.releaseYear}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </>
+                )}
 
-                
-               
-            </section>  
-                </>) : "No item selected in the comparator"}
+
+
+            </section>
         </section>
     )
 }
 
 export default ComparatorPage
-    // < p > title: { firstElement.title }</p >
-    //                         <p>category : {firstElement.category}</p>
-    //                         <p>developer :{firstElement.developer}</p>
-    //                         <img src={firstElement.image} />
-    //                         <p> rating : {firstElement.rating}</p>
-    //                         <p> releaseYear : {firstElement.releaseYear}</p>
-    //                         <p> price :{firstElement.price}$</p>
-    //                         <p> description :{firstElement.description}</p>  
