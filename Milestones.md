@@ -8,6 +8,7 @@
         -React-Router-dom   
         -Tailwind 
         -react-icons
+        -lucide-react
 # Milestone 2:  ✅
 -create component "RecordList.jsx" 
         -All'interno del componente, usato useEffect per fare il fetch dei dati dal backend.

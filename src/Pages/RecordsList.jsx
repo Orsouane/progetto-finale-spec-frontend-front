@@ -7,6 +7,7 @@ import SearchBar from '../Components/SearchBar';
 import SelectOrder from '../Components/SelectOrder';
 import SelectCategory from '../Components/SelectCategory';
 import SearchError from '../Components/UiComponents/SearchError';
+import Jumbotron from '../Components/UiComponents/Jumbotron';
 
 function RecordsList() {
      const { records } = useContext(GlobalContext)
@@ -38,7 +39,8 @@ function RecordsList() {
      useEffect(() => setGameToShow(orderArray.slice(0, 6)), [orderArray])
 
      return (
-          <div className="px-4 bg-[#0F1923] ">
+          <div className="px-4   ">
+               <Jumbotron/>
                <div className="sticky top-16 bg-[#0F1923] z-40 pt-5 mb-10">
                     <section className="mb-4">
                          <SearchBar debounceSearch={debounceSearch} RefSearch={RefSearch} />
@@ -50,9 +52,9 @@ function RecordsList() {
                     <Comparator orderArray={GameToShow} />
                </div>
 
-               <div className="h-screen overflow-y-auto relative">
+               <div className="h-screen lg:h-[700px] overflow-y-auto relative">
                     {GameToShow.length > 0 ? (
-                         <section className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+                         <section className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
                               {GameToShow.map((game, index) => (
                                    <div key={index}>
                                         <GameCard game={game} />
@@ -61,12 +63,14 @@ function RecordsList() {
                          </section>
                     ) : <SearchError />}
                        {/* buttons load */}
-                  <section className='flex gap-5 justify-between max-w-80 b mt-4 m-auto '> 
+                  <section className='flex gap-5 justify-between max-w-80 mb-5 mt-4 m-auto '> 
                          {GameToShow.length < orderArray.length && <button onClick={loadMore}
-                              className="cursor-pointer relative after:content-['Load_More'] after:text-white after:absolute after:text-nowrap after:scale-0 hover:after:scale-100 after:duration-200 p-4   h-8 rounded-full border text-sm border-[#8E95A2] bg-[#1F2937] pointer flex items-center justify-center duration-300 hover:rounded-[25px] hover:w-20 group/button overflow-hidden active:scale-90  "
+                              className="cursor-pointer relative after:content-['Load_More'] after:text-white after:absolute after:text-nowrap after:scale-0 hover:after:scale-100 after:duration-400 p-4   h-8 rounded-full border text-sm border-[#8E95A2] bg-[#1F2937] pointer flex items-center justify-center duration-300 hover:rounded-[25px] hover:w-20 group/button overflow-hidden active:scale-90  "
                          >
                               <svg
-                                   className="w-3 fill-white delay-100 duration-200 group-hover/button:translate-y-12 rotate-180"
+                                   className="w-3 fill-white delay-50 duration-1200 
+                                   animate-bounce
+                                   group-hover/button:translate-y-12 rotate-180"
                                    viewBox="0 0 384 512"
                               >
                                    <path
@@ -76,11 +80,14 @@ function RecordsList() {
                          </button>
                          }
 
-                         {GameToShow.length > 6 && GameToShow.length <= orderArray.length && <button onClick={loadLess}
-                              className="cursor-pointer relative after:content-['Load_less'] after:text-white after:absolute after:text-nowrap after:scale-0 hover:after:scale-100 after:duration-200 p-4   h-8 rounded-full border text-sm border-[#8E95A2] bg-[#1F2937] pointer flex items-center justify-center duration-300 hover:rounded-[25px] hover:w-20 group/button overflow-hidden active:scale-90  "
+                         {GameToShow.length > 6  && <button onClick={loadLess}
+                              className="cursor-pointer relative
+                              after:content-['Load_Less'] 
+                              after:text-white after:absolute after:text-nowrap after:scale-0 hover:after:scale-100 after:duration-200 p-4   h-8 rounded-full border text-sm border-[#8E95A2] bg-[#1F2937] pointer flex items-center justify-center duration-300 hover:rounded-[25px] hover:w-20 group/button overflow-hidden active:scale-90  "
                          >
                               <svg
-                                   className="w-3 fill-white delay-50 duration-200 group-hover/button:-translate-y-12"
+                                   className="w-3 fill-white delay-50 duration-1200 
+                                   animate-bounce group-hover/button:-translate-y-12"
                                    viewBox="0 0 384 512"
                               >
                                    <path
