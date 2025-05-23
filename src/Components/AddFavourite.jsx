@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { GlobalContext } from '../Context/GlobalContext'
+import { CiStar } from "react-icons/ci";
 function AddFavourite({ game }) {
         const id = game.id
         const { records } = useContext(GlobalContext)
@@ -16,7 +17,10 @@ function AddFavourite({ game }) {
         };
         return (
                 <div>
-                        <span className='font-bold cursor-pointer' onClick={handleFavourite}>   ❤ </span>
+                  <span className='font-bold cursor-pointer' onClick={handleFavourite}>   <span >
+                       <CiStar className="text-stone-50 hover:text-amber-300" /></span> 
+                  
+                   </span>
                 </div>
         )
 }

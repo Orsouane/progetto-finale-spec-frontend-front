@@ -9,17 +9,18 @@
         -Tailwind 
         -react-icons
         -lucide-react
+        -lodash
 # Milestone 2:  ✅
 -create component "RecordList.jsx" 
         -All'interno del componente, usato useEffect per fare il fetch dei dati dal backend.
         -Usato useState per salvare i dati ricevuti.
 -create component Card 
--create home page (optional)
+
 
 # Milestone 3: Search, Filter, Sort✅
-Aggiungi barra di ricerca (filtra per title)
-Aggiungi filtro per category 
-Aggiungi ordinamento A-Z / Z-A per title e category
+Aggiunto barra di ricerca (filtra per title)
+Aggiunto filtro per category 
+Aggiunto ordinamento A-Z / Z-A per title e category
 🚩Requisiti Aggiuntivi (Facoltativi) :
         -Debounce sulla ricerca
         -Gestione degli stati vuoti:No games founded
@@ -44,7 +45,7 @@ Creato componente comparatore
         -Gestione degli stati vuoti:Favorites list is empty
         
 
-# Milestone 7: Rifiniture 
+# Milestone 7: Rifiniture ✅
 -gestione errori fetch
 -Pulizia codice, 
 layout responsivo

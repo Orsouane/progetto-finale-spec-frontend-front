@@ -4,16 +4,22 @@ import { GlobalContext } from '../Context/GlobalContext'
 import { useContext, useEffect } from 'react'
 function DetailsPage() {
      const chiaveDetails = ["title", "category", "developer", "rating", "releaseYear", "price"]
+     //* Recuperare id dal URL
      const { id } = useParams()
+     //* Recuperare gameDetail e getGame  dal contesto globale
      const { gameDetail, getGame } = useContext(GlobalContext)
-     useEffect(() => { getGame(id); }, [id, getGame]);
+     //* Quando id o getGame cambiano, chiama getGame con l'id per caricare dettagli
+      useEffect(() => { getGame(id); }, [id, getGame]);
 
      return (
-          <div className=' max-w-[600px]  m-auto'>
+          //* Contenitore del Card di dettaglio
+          <div className='m-5 '>
                {gameDetail &&
-                    (<div className='bg-[#1F2937] p-3 rounded-md mt-10 m-5 flex justify-center flex-col text-sm '>
+               //* Card di dettaglio
+                    (<div className='bg-[#1F2937] p-3 rounded-md mt-10  flex justify-center flex-col text-sm sm:text-base max-w-[600px]  m-auto'>
                          <img src={gameDetail.image} />
-                         <div className='grid grid-cols-3 gap-2 m-3'>
+                         {/* dettagli tranne il description */}
+                         <div className='grid grid-cols-2 gap-2 m-3'>
                               {chiaveDetails.map((el, index) => <p key={index} className=''>
 
                                    <span className='text-[#60A5FA]'>{el.charAt(0).toUpperCase() + el.slice(1)} : </span>
@@ -23,7 +29,7 @@ function DetailsPage() {
 
                               )}
                          </div>
-
+                            {/* il description */}
                          <p className='text-white m-3'> <span className='text-[#60A5FA]'>Description: </span>{gameDetail.description}</p>
                     </div>)}
           </div>

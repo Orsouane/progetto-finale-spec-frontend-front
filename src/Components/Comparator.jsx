@@ -3,18 +3,30 @@ import { useNavigate } from 'react-router-dom'
 import { GlobalContext } from '../Context/GlobalContext'
 function Comparator({ orderArray }) {
      const navigate = useNavigate()
-     const { compare, setCompare, compare2, setCompare2 } = useContext(GlobalContext)
-     // Resettare il compare al refresh ()
-     useEffect(() => {
-          setCompare("Add to compare")
-          setCompare2("Add to compare")
-     }, [])
+
+const { getGame1, getGame2, compare, setCompare, compare2, setCompare2 } = useContext(GlobalContext);
+
+//     Resettare il compare al refresh ()
+    useEffect(() => {
+         setCompare("Add to compare")
+         setCompare2("Add to compare")
+    }, [])
      //* function to navigate to compare page 
      const handleCompare = (e) => {
           e.preventDefault()
           navigate("/Compare")
      }
+     const HandleFirstGame = (e)=>{
+          const game = orderArray.find(g => g.title === e.target.value);
+          if (game) getGame1(game.id);
+          setCompare(e.target.value);
+     }
 
+     const handleSecondGame = (e)=>{
+     const game = orderArray.find(g => g.title === e.target.value);
+            if (game) getGame2(game.id);
+            setCompare2(e.target.value);
+  }
      return (
           <div className='flex rounded-md max-w-[400px] gap-1  mb-10 pb-5  bg-[#0F1923] text-white p-2  m-auto '>
                <div className='flex flex-col justify-between w-full   '>
@@ -28,7 +40,9 @@ function Comparator({ orderArray }) {
                     <div className='flex  gap-5 justify-center'>
 
                          {/* options first game */}
-                         <select onChange={e => setCompare(e.target.value)} className='bg-[#8E95A2] rounded-md text-xs p-1  cursor-pointer'>
+                         <select onChange={HandleFirstGame}
+                              
+                          className='bg-[#8E95A2] rounded-md text-xs p-1  cursor-pointer'>
                               <option value="">{compare}</option>
 
                               {
@@ -40,7 +54,7 @@ function Comparator({ orderArray }) {
 
                          {/* options  second game */}
 
-                         <select onChange={e => setCompare2(e.target.value)} className='bg-[#8E95A2] rounded-md text-xs p-1 cursor-pointer'>
+                         <select onChange={handleSecondGame} className='bg-[#8E95A2] rounded-md text-xs p-1 cursor-pointer'>
                               <option value="">{compare2}</option>
 
                               {
