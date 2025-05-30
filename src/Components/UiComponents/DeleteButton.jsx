@@ -4,15 +4,15 @@ function DeleteButton() {
      return (
 
           <button
-               className="group relative flex h-14  w-20  items-center justify-center overflow-hidden rounded-xl border-2 border-red-800 bg-red-400 hover:bg-red-600 text-xs cursor-pointer"
+               className="group relative flex h-10  w-20  items-center justify-center overflow-hidden rounded-xl border-2 border-red-800 hover:bg-red-500 bg-red-800 text-xs cursor-pointer"
           >
                <p className='pr-2'>Delete</p>
                <div className=''>
                     <svg
                          viewBox="0 0 1.625 1.625"
-                         className="absolute -top-7 fill-white delay-100 group-hover:top-6 group-hover:animate-[spin_1.4s] group-hover:duration-1000"
-                         height="15"
-                         width="15"
+                         className="absolute -top-7 fill-white delay-100 group-hover:top-3 group-hover:animate-[spin_1.4s] group-hover:duration-1000"
+                         height="9"
+                         width="9"
                     >
                          <path
                               d="M.471 1.024v-.52a.1.1 0 0 0-.098.098v.618c0 .054.044.098.098.098h.487a.1.1 0 0 0 .098-.099h-.39c-.107 0-.195 0-.195-.195"
@@ -25,7 +25,7 @@ function DeleteButton() {
                          ></path>
                     </svg>
                     <svg
-                         width="16"
+                         width="10"
                          fill="none"
                          viewBox="0 0 39 7"
                          className="origin-right duration-500 group-hover:rotate-90"
@@ -40,7 +40,7 @@ function DeleteButton() {
                               x1="12"
                          ></line>
                     </svg>
-                    <svg width="16" fill="none" viewBox="0 0 33 39" className="">
+                    <svg width="10" fill="none" viewBox="0 0 33 39" className="">
                          <mask fill="white" id="path-1-inside-1_8_19">
                               <path
                                    d="M0 0H33V35C33 37.2091 31.2091 39 29 39H4C1.79086 39 0 37.2091 0 35V0Z"

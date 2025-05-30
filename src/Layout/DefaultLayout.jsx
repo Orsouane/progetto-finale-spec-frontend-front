@@ -1,6 +1,6 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
-import Header from '../src/Components/Header'
+import Header from "../Components/Header"
 function DefaultLayout() {
     return (
         <div>

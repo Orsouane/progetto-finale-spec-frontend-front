@@ -13,14 +13,18 @@ function DetailsPage() {
 
      return (
           //* Contenitore del Card di dettaglio
-          <div className='m-5 '>
+          <div className='m-5  '>
                {gameDetail &&
                //* Card di dettaglio
-                    (<div className='bg-[#1F2937] p-3 rounded-md mt-10  flex justify-center flex-col text-sm sm:text-base max-w-[600px]  m-auto'>
+                    (<div className='bg-[#1F2937] p-3 rounded-md mt-10  flex justify-center flex-col text-sm sm:text-base max-w-[420px]  m-auto hover:border-[#8E95A2] 
+                           hover:transform hover:-translate-y-1 
+                           transition-all duration-300 ease-out
+                           border border-gray-700/80
+                           backdrop-blur-sm'>
                          <img src={gameDetail.image} />
                          {/* dettagli tranne il description */}
                          <div className='grid grid-cols-2 gap-2 m-3'>
-                              {chiaveDetails.map((el, index) => <p key={index} className=''>
+                              {chiaveDetails.map((el, index) => <p key={index} >
 
                                    <span className='text-[#60A5FA]'>{el.charAt(0).toUpperCase() + el.slice(1)} : </span>
                                    <span className='text-white'> {gameDetail[el]} </span>
@@ -32,6 +36,7 @@ function DetailsPage() {
                             {/* il description */}
                          <p className='text-white m-3'> <span className='text-[#60A5FA]'>Description: </span>{gameDetail.description}</p>
                     </div>)}
+                    
           </div>
      )
 }

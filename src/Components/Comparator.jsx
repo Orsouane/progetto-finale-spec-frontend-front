@@ -1,12 +1,12 @@
 import React, { useContext, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { GlobalContext } from '../Context/GlobalContext'
-function Comparator({ orderArray }) {
+import { CompareContext } from '../Context/CompareContext'
+function Comparator({ GameToShow }) {
      const navigate = useNavigate()
 
-const { getGame1, getGame2, compare, setCompare, compare2, setCompare2 } = useContext(GlobalContext);
+     const { getGame1, getGame2, compare, setCompare, compare2, setCompare2 } = useContext(CompareContext);
 
-//     Resettare il compare al refresh ()
+    //*Resetto il compare al refresh ()
     useEffect(() => {
          setCompare("Add to compare")
          setCompare2("Add to compare")
@@ -16,37 +16,40 @@ const { getGame1, getGame2, compare, setCompare, compare2, setCompare2 } = useCo
           e.preventDefault()
           navigate("/Compare")
      }
+
+     //! Gestione dei due Giochi da confrontare
+     //* 1° Giocho
      const HandleFirstGame = (e)=>{
-          const game = orderArray.find(g => g.title === e.target.value);
+          const game = GameToShow.find(g => g.title === e.target.value);
           if (game) getGame1(game.id);
           setCompare(e.target.value);
      }
-
+     //* 2° Giocho
      const handleSecondGame = (e)=>{
-     const game = orderArray.find(g => g.title === e.target.value);
+     const game = GameToShow.find(g => g.title === e.target.value);
             if (game) getGame2(game.id);
             setCompare2(e.target.value);
   }
      return (
-          <div className='flex rounded-md max-w-[400px] gap-1  mb-10 pb-5  bg-[#0F1923] text-white p-2  m-auto '>
-               <div className='flex flex-col justify-between w-full   '>
-
+          <div className='flex gap-1 w-full pb-5  text-white p-2 justify-center  rounded-md border border-[#8E95A2] max-w-[320px] sm:max-w-[350px] m-auto'>
+               <div className='flex flex-col '>
+          
                     {/*Title  Comparing two Games */}
-                    <div className='pb-2 '>
+                    <div className='pb-3 '>
                          <p className='text-sm text-center font-semibold'>Comparing two Games</p>
                     </div>
 
                     {/* Select to compare */}
-                    <div className='flex  gap-5 justify-center'>
+                    <div className='flex  gap-3 sm:gap-5 justify-center items-center '>
 
                          {/* options first game */}
                          <select onChange={HandleFirstGame}
                               
-                          className='bg-[#8E95A2] rounded-md text-xs p-1  cursor-pointer'>
+                              className='bg-[#1F2937] rounded-md text-[#8E95A2] border border-[#8E95A2]  text-xs    h-8  cursor-pointer max-w-27   '>
                               <option value="">{compare}</option>
 
                               {
-                                   orderArray.map((element, index) => <option value={element.title} key={index}>{element.title}   </option>
+                                   GameToShow.map((element, index) => <option value={element.title} key={index}>{element.title}   </option>
 
                                    )
                               }
@@ -54,17 +57,17 @@ const { getGame1, getGame2, compare, setCompare, compare2, setCompare2 } = useCo
 
                          {/* options  second game */}
 
-                         <select onChange={handleSecondGame} className='bg-[#8E95A2] rounded-md text-xs p-1 cursor-pointer'>
+                         <select onChange={handleSecondGame} className='bg-[#1F2937] rounded-md text-[#8E95A2] border border-[#8E95A2] h-8  text-xs max-w-27 cursor-pointer '>
                               <option value="">{compare2}</option>
 
                               {
-                                   orderArray.map((element, index) => <option value={element.title} key={index}>{element.title}   </option>
+                                   GameToShow.map((element, index) => <option value={element.title} key={index}>{element.title}   </option>
 
                                    )
                               }
                          </select>
                          {/* button to navigate to compare page */}
-                         <button onClick={handleCompare} className=' my-1 mx-2 bg-[#8E95A2] hover:bg-[#60A5FA] rounded-md text-xs p-1 cursor-pointer w-fit '>Compare</button>
+                         <button onClick={handleCompare} className=' my-1     rounded-md text-xs  r w-fit  bg-[#1F2937]  text-[#8E95A2] border border-[#8E95A2] hover:text-white hover:bg-[rgb(129,110,216)] p-1.5 cursor-pointer'>Compare</button>
                     </div>
                </div>
 

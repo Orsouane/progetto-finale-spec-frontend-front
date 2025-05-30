@@ -3,13 +3,21 @@
 -created folders : 
         -Pages
         -Components
+           -UiComponent
         -Context
+        -Layout
+        
+
 -installed librarys  : 
         -React-Router-dom   
         -Tailwind 
         -react-icons
         -lucide-react
         -lodash
+        -react-toastify
+        -framer-motion
+        -motion
+        -motion-plus
 # Milestone 2:  ✅
 -create component "RecordList.jsx" 
         -All'interno del componente, usato useEffect per fare il fetch dei dati dal backend.
