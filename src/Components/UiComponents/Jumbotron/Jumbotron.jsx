@@ -47,7 +47,7 @@ import SplitText from './JumbotronTextAnimation';
 
                {/* Content container */}
                <div className="relative z-10 flex flex-col items-center justify-center h-full p-8 text-center">
-                    <h1 className="text-5xl font-bold tracking-tight text-white mb-4">
+                    <h1 className="text-5xl font-bold tracking-tight text-white mb-4  ">
                          BoolStation store
                     </h1>
                     <div className="text-xl text-purple-100 max-w-2xl mb-8">
@@ -57,7 +57,7 @@ import SplitText from './JumbotronTextAnimation';
                     <div className="flex gap-4">
                          <button className="px-3 py-2 bg-[#60A5FA] 
                          hover:bg-[rgb(129,110,216)] 
-                         text-white font-semibold rounded-lg shadow-md transition duration-500 animate-pulse cursor-pointer " onClick={() => window.scrollBy({ top: offset, behavior: 'smooth' })}>
+                         text-white font-semibold rounded-lg shadow-md transition duration-500 animate-pulse cursor-pointer  " onClick={() => window.scrollBy({ top: offset, behavior: 'smooth' })}>
                               Start exploring
 
                          </button>

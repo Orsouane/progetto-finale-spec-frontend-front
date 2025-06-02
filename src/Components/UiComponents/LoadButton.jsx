@@ -1,14 +1,28 @@
-import React from 'react'
+
+import React, {useState } from 'react'
 
 function LoadButton({ GameToShow, loadLess, loadMore, orderArray }) {
-     
+ 
+
+     const [lastScroll, setLastScroll] = useState(0);
+
+     const handleLoadMore = () => {
+          loadMore();
+          setTimeout(() => {
+               const newScroll = lastScroll + 2000;
+               window.scrollTo({ top: newScroll, behavior: 'smooth' });
+               setLastScroll(newScroll);
+          }, 100);
+     };
+
+  
   return (
      <>
      
             <div className='mb-2 max-w-80  flex justify-between p-2 rounded-md m-auto cursor-pointer'>
                  <div>
                       {/* LoadMore */}
-                      {orderArray.length > GameToShow.length && <button onClick={loadMore}
+                      {orderArray.length > GameToShow.length && <button onClick={handleLoadMore}
                            className="cursor-pointer relative after:content-['Load_More'] after:text-white after:absolute after:text-nowrap after:scale-0 hover:after:scale-100 after:duration-400 p-4   h-8 rounded-full border text-sm border-[#8E95A2] bg-[#1F2937] pointer flex items-center justify-center duration-300 hover:rounded-[25px] hover:w-20 group/button overflow-hidden active:scale-90  "
                       >
                            <svg

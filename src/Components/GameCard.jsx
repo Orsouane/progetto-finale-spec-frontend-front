@@ -13,7 +13,7 @@ function Card({ game }) {
                            hover:transform hover:-translate-y-1 
                            transition-all duration-300 ease-out
                            border border-gray-700/80
-                           backdrop-blur-sm'>
+                           backdrop-blur-sm shadow-2xl'>
 
                     <div className='flex flex-col w-80 gap-2'>
                          <div className='flex justify-between'>

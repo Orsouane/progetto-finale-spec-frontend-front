@@ -9,7 +9,7 @@ import Jumbotron from '../Components/UiComponents/Jumbotron/Jumbotron';
 import ScrollIndicator from '../Components/UiComponents/ScrollIndicator';
 import GameList from '../Components/GameList';
 import LoadButton from '../Components/UiComponents/LoadButton';
-import BackTopButton from '../Components/UiComponents/BackTopButton';
+
 
 function RecordsList() {
 
@@ -95,6 +95,7 @@ function RecordsList() {
                                {/* Contatore */}
                               <p className="text-white flex flex-col">
                                    <span>All games : {GameToShow.length}</span>
+                                   
                               </p>
                               {/* Filter button */}
                               <button onClick={toggleShow} className="setting-btn mt-1 cursor-pointer ">
