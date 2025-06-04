@@ -32,7 +32,7 @@ export default function SplitText() {
      return (
           <div className="container " ref={containerRef} style={{ visibility: "hidden" }}>
                <h1 className="h1 text-center">
-                    Discover, compare, and save your favorite games,all in one cozy place, with ease & style.
+                    Discover, compare, and save your favourite games,all in one cozy place, with ease & style.
 
                </h1>
                <Stylesheet />

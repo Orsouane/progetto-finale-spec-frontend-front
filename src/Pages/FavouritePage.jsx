@@ -8,7 +8,7 @@ import ScrollIndicator from '../Components/UiComponents/ScrollIndicator';
 import BackTopButton from '../Components/UiComponents/BackTopButton';
 
 function FavouritePage() {
-     const { favouriteGames, setFavouriteGames, fullFavourites } = useContext(FavouriteContext);
+     const { favouriteGames, setFavouriteGames, fullFavourites, setFullFavourites } = useContext(FavouriteContext);
      //* Ref per tornare al inzio della pagina 
      const backRef = useRef(null)
 
@@ -21,7 +21,7 @@ function FavouritePage() {
      }, [fullFavourites]);
 
     
-     //! Mostra una notifica toast quando un gioco viene rimosso dai preferiti.
+     //! Mostro una notifica toast quando un gioco viene rimosso dai preferiti.
      const notify = () => toast("Game Deleted from  Favourite !");
 
     
@@ -31,6 +31,7 @@ function FavouritePage() {
           // console.log(deleteFavourite)
           setFavouriteGames(deleteFavourite)
           localStorage.setItem("favouriteGames", JSON.stringify(deleteFavourite))
+          setFullFavourites(fullFavourites.filter(game => game.id !== favourite.id));
 
      }
 

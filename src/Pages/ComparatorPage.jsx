@@ -6,7 +6,7 @@ function ComparatorPage() {
      //* Giochi 
      const { gameCompare1, gameCompare2 } = useContext(CompareContext);
      const chiaveComparator = ["title", "rating", "releaseYear", "price"]
-     //* Avviso utente
+     //! Avviso utente
      const [messageEmptyPage, setMessageEmptyPage] = useState("")
      useEffect(() => {
           if (!gameCompare1 || !gameCompare2) {

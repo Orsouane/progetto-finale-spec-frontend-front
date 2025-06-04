@@ -8,7 +8,7 @@ function DetailsPage() {
      const { id } = useParams()
      //* Recuperare gameDetail e getGame  dal contesto globale
      const { gameDetail, getGame } = useContext(GlobalContext)
-     //* Quando id o getGame cambiano, chiama getGame con l'id per caricare dettagli
+     //* Quando id o getGame cambiano, chiamo getGame con l'id per caricare dettagli
       useEffect(() => { getGame(id); }, [id, getGame]);
 
      return (

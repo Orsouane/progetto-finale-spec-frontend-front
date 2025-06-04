@@ -85,11 +85,11 @@ function RecordsList() {
 
      return (
           <>
-          <ScrollIndicator />
+         
           <Jumbotron />
-
+              {/* NavBar */}
                <section className="sticky top-[72px] bg-[#0F1923] z-40 flex flex-col pt-2  mt-3 mb-8 w-full max-w-[1300px] m-auto rounded-b-4xl" >
-                    {/* toggle show */}
+                    {/* toggle show */}  
                     <div className=' bg-[#1F2937]/25  rounded-b-4xl shadow-xl mx-2  p-4'>
                          <div className="flex justify-between items-center    " >
                                {/* Contatore */}
@@ -106,7 +106,7 @@ function RecordsList() {
 
 
                          </div>
-
+                         {/* FilterPanel */}
                          <div className={`${show ? "h-50 opacity-100" : "h-0 opacity-0 overflow-hidden "}  transition-all duration-200 `}  >
                               {/* barra di ricerca  */}
                               <section className="mb-4 px-4">
@@ -131,7 +131,7 @@ function RecordsList() {
                     {/* load buttons */}
                     <LoadButton GameToShow={GameToShow} loadLess={loadLess} loadMore={loadMore} orderArray={orderArray} />
                </div>
-
+               <ScrollIndicator />
               
           </>
 

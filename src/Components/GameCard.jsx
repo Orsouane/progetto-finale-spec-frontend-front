@@ -18,6 +18,7 @@ function Card({ game }) {
                     <div className='flex flex-col w-80 gap-2'>
                          <div className='flex justify-between'>
                               <span className='font-bold text-white'>{game.title}</span>
+                              {/* Details */}
                               <NavLink to={`/games/${id}`}>
                                    <button className="btn">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="#0000" stroke=" rgb(129, 110, 216)" data-name="Layer 1" viewBox="0 0 24 24" id="github"
@@ -32,6 +33,7 @@ function Card({ game }) {
 
                          <div className='flex justify-between items-center'>
                               <span className='text-xs text-[#60A5FA]'>{game.category}</span>
+                              {/* add to favourite */}
                               <AddFavourite game={game} />
                          </div>
                     </div>

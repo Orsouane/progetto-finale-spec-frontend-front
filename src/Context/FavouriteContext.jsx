@@ -54,7 +54,7 @@ function FavouriteProvider({ children }) {
      }, [favouriteGames]); 
 
      return (
-          <FavouriteContext.Provider value={{ favouriteGames, setFavouriteGames, fullFavourites }}>
+          <FavouriteContext.Provider value={{ favouriteGames, setFavouriteGames, fullFavourites, setFullFavourites }}>
                {children}
           </FavouriteContext.Provider>
      )

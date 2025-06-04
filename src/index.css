@@ -208,7 +208,6 @@
 
 .button:hover {
   width: 80px;
-
   border-radius: 50px;
   transition-duration: 0.3s;
   background-color: rgb(181, 160, 255);
