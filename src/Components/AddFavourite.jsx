@@ -10,7 +10,7 @@ function AddFavourite({ game }) {
      const { records } = useContext(GlobalContext);
      const { favouriteGames, setFavouriteGames } = useContext(FavouriteContext);
      //*  Controllo se gia inserita nell favourite
-     const isFav = favouriteGames.some(el => el.id === game.id);
+     const isFav = favouriteGames.some(el => el?.id === game.id);
   
      const handleFavourite = () => {
           if (isFav) {

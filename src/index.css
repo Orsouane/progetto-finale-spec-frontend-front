@@ -236,3 +236,11 @@
   /* transform: translateY(-30px); */
   transition-duration: 0.3s;
 }
+.scroll-container {
+     overflow: auto;
+     -ms-overflow-style: none; /* IE e Edge */
+     scrollbar-width: none; /* Firefox */
+   }
+   .scroll-container::-webkit-scrollbar {
+     display: none; /* Chrome, Safari */
+   }

@@ -27,11 +27,11 @@ function FavouritePage() {
     
      //!  DELETE GAME FROM FAVORITE
      const handleDeleteFavourite = (favourite) => {
-          const deleteFavourite = favouriteGames.filter(el => el.id !== favourite.id)
+          const deleteFavourite = favouriteGames.filter(el => el?.id !== favourite?.id)
           // console.log(deleteFavourite)
           setFavouriteGames(deleteFavourite)
           localStorage.setItem("favouriteGames", JSON.stringify(deleteFavourite))
-          setFullFavourites(fullFavourites.filter(game => game.id !== favourite.id));
+          setFullFavourites(fullFavourites.filter(game => game?.id !== favourite?.id));
 
      }
 
@@ -56,17 +56,17 @@ function FavouritePage() {
                     />
                     {fullFavourites.length !== 0 ? (
                          <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 max-w-[1200px] m-auto  ' >
-                              {fullFavourites.map((favourite, index) => (
+                              {fullFavourites && fullFavourites.map((favourite, index) => (
                                    <div className='bg-[#1F2937] max-w-[400px] p-2 rounded-md m-5 hover:border-[#8E95A2] 
                            hover:transform hover:-translate-y-1 
                            transition-all duration-300 ease-out
                            border border-gray-700/80
                            backdrop-blur-sm' key={index}>
                                         <div className='text-white text-sm'>
-                                             <img src={favourite.image} alt={favourite.title} className='border-[#8E95A2] border shadow-2xl' />
+                                             <img src={favourite?.image} alt={favourite?.title} className='border-[#8E95A2] border shadow-2xl' />
                                              <div className='mt-3'>
-                                                  <p><span className='text-sm text-[#60A5FA]'>Title : </span>{favourite.title}</p>
-                                                  <p><span className='text-sm text-[#60A5FA]'>Description : </span>{favourite.description}</p>
+                                                  <p><span className='text-sm text-[#60A5FA]'>Title : </span>{favourite?.title}</p>
+                                                  <p><span className='text-sm text-[#60A5FA]'>Description : </span>{favourite?.description}</p>
                                              </div>
                                              <div className='flex justify-between'>
                                                   <div></div>
