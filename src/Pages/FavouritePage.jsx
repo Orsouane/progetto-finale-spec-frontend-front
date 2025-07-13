@@ -63,7 +63,7 @@ function FavouritePage() {
                            border border-gray-700/80
                            backdrop-blur-sm' key={index}>
                                         <div className='text-white text-sm'>
-                                             <img src={favourite?.image} alt={favourite?.title} className='border-[#8E95A2] border shadow-2xl' />
+                                             <img src={favourite?.imagesExtra[0]} alt={favourite?.title} className='border-[#8E95A2] border shadow-2xl h-80' />
                                              <div className='mt-3'>
                                                   <p><span className='text-sm text-[#60A5FA]'>Title : </span>{favourite?.title}</p>
                                                   <p><span className='text-sm text-[#60A5FA]'>Description : </span>{favourite?.description}</p>

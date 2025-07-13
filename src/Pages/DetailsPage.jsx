@@ -26,34 +26,29 @@ function DetailsPage({ game }) {
           //* Contenitore del Card di dettaglio
           <div className='m-5  '>
                {gameDetail && (
-                    <div className='bg-[#1F2937] p-3 rounded-md mt-10 flex justify-center flex-col text-sm sm:text-base max-w-[820px] m-auto hover:border-[#8E95A2]  transition-all duration-300 ease-out border border-gray-700/80 backdrop-blur-sm'>
-                         <div className='flex gap-2 mt-2 overflow-auto rounded-lg snap-x snap-mandatory sm:hidden '>
-                              {gameDetail.imagesExtra.map((img, index) => (
-                                   <img
-                                        key={index}
-                                        src={img}
-                                        alt={`Mobile thumbnail ${index + 1}`}
-                                        className="min-w-screen h-[37vh] object-cover snap-start"
-                                   />
-                              ))}
-                         </div>
-                         <div className="hidden sm:flex gap-2 aspect-video h-full w-full mt-4">
-                              <div className="relative w-3/4">
+                    <div className='bg-[#1F2937] p-3 rounded-md mt-10 flex justify-center flex-col text-sm sm:text-base max-w-[820px] m-auto hover:border-[#8E95A2]  transition-all duration-300 ease-out border border-gray-700/80 backdrop-blur-sm h-72 sm:h-full'>
+                         <div className="sm:flex  gap-2 aspect-video h-full w-full mt-2 ">
+                              <div className=" relative  sm:w-3/4">
                                    <img
                                         src={gameDetail.imagesExtra[activeIndex]}
                                         alt={`Image ${activeIndex + 1}`}
                                         className="h-full aspect-video object-cover rounded-lg"
                                    />
                               </div>
-                              <div className=" w-1/4 flex flex-col gap-2 p-1 border-y border-y-gray-600 rounded-md scroll-container  ">
+                              {/* Miniatura */}
+                              
+                              <div className="  sm:w-1/4 flex sm:flex-col gap-2 p-1 border-y border-y-gray-600 rounded-md scroll-container     ">
                                    {gameDetail.imagesExtra.map((img, index) => (
-                                        <img
-                                             key={index}
-                                             src={img}
-                                             alt={`Thumbnail ${index + 1}`}
-                                             className={`w-full aspect-[3/2] object-cover rounded-md cursor-pointer hover:scale-[1.02] transition-all ${activeIndex === index ? "outline-2 outline-blue-500" : ""}`}
-                                             onClick={() => handleThumbnailClick(index)}
-                                        />
+                                        <div className='w-full'> 
+                                             <img
+                                                  key={index}
+                                                  src={img}
+                                                  alt={`Thumbnail ${index + 1}`}
+                                                  className={`w-full aspect-[3/2] object-cover rounded-md cursor-pointer hover:scale-[1.02] transition-all ${activeIndex === index ? "outline-2 outline-blue-500" : ""}`}
+                                                  onClick={() => handleThumbnailClick(index)}
+                                             />
+                                        </div>
+                                    
                                    ))}
                               </div>
                          </div>
