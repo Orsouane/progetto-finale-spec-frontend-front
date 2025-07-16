@@ -30,7 +30,7 @@ function AddFavourite({ game }) {
                onClick={handleFavourite}
                title="Favourite"
           >
-               <div className="heart-container">
+               <div className="heart-container ">
                     <input
                          id="Give-It-An-Id"
                          className="checkbox"

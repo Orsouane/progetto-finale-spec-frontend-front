@@ -16,18 +16,18 @@ function Card({ game }) {
                            border border-gray-700/80
                            backdrop-blur-sm shadow-2xl'>
 
-                    <div className='flex flex-col w-80 gap-2'>
+                    <div className='flex flex-col w-80 gap-2 '>
                          <div className='flex justify-between'>
                               <span className='font-bold text-white'>{game.title}</span>
                               {/* Details */}
                               <NavLink to={`/games/${id}`}>
-                                   <button className="buttonD">
-                                        <span className="span"><IoSearch/></span>
+                                   <button className="buttonD ">
+                                        <span className="span "><IoSearch/></span>
                                    </button>
                               </NavLink>
                          </div>
 
-                         <div className='flex justify-between items-center'>
+                         <div className='flex justify-between items-center '>
                               <span className='text-xs text-[#60A5FA]'>{game.category}</span>
                               {/* add to favourite */}
                               <AddFavourite game={game} />
