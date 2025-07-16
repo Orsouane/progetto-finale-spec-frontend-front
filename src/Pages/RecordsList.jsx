@@ -9,6 +9,7 @@ import Jumbotron from '../Components/UiComponents/Jumbotron/Jumbotron';
 import ScrollIndicator from '../Components/UiComponents/ScrollIndicator';
 import GameList from '../Components/GameList';
 import LoadButton from '../Components/UiComponents/LoadButton';
+import { CompareContext } from '../Context/CompareContext';
 
 
 function RecordsList() {
@@ -25,7 +26,10 @@ function RecordsList() {
      const [order, setOrder] = useState("Order by")
      //* Toggle params 
      const [show, setShow] = useState(false)
-
+     //*ResetCompre
+     const {resetCompare}=useContext(CompareContext)
+     useEffect(()=>{ resetCompare()},[])
+    
      //?Search
      //!Debounce per il search 
      const debounceSearch = useCallback(debounce(setQuery, 800), [])

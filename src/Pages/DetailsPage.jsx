@@ -33,22 +33,23 @@ function DetailsPage({ game }) {
                                         src={gameDetail.imagesExtra[activeIndex]}
                                         alt={`Image ${activeIndex + 1}`}
                                         className="h-full aspect-video object-cover rounded-lg"
+                                        loading="lazy"
                                    />
                               </div>
                               {/* Miniatura */}
-                              
+
                               <div className="  sm:w-1/4 flex sm:flex-col gap-2 p-1 border-y border-y-gray-600 rounded-md scroll-container     ">
                                    {gameDetail.imagesExtra.map((img, index) => (
-                                        <div className='w-full'> 
+                                        <div className='w-full' key={index}>
                                              <img
-                                                  key={index}
+                                                  loading="lazy"
                                                   src={img}
                                                   alt={`Thumbnail ${index + 1}`}
                                                   className={`w-full aspect-[3/2] object-cover rounded-md cursor-pointer hover:scale-[1.02] transition-all ${activeIndex === index ? "outline-2 outline-blue-500" : ""}`}
                                                   onClick={() => handleThumbnailClick(index)}
                                              />
                                         </div>
-                                    
+
                                    ))}
                               </div>
                          </div>
@@ -90,60 +91,61 @@ function DetailsPage({ game }) {
 
 
 
-                    <div className='flex justify-center items-center  gap-2 px-3 py-2 bg-[#60A5FA] 
+
+
+                    <span className='font-bold text-stone-400 flex items-center gap-1 '>Category :
+                         <span className='text-white'>
+                              {gameDetail?.category}
+                         </span>
+                    </span>
+                    <span className='font-bold text-stone-400 flex items-center gap-1'>Developer :
+                         <span className='text-white'>
+                              {gameDetail?.developer}
+                         </span>
+                    </span>
+                    <span className='font-bold text-stone-400 flex items-center gap-1'>ReleaseYear :
+                         <span className='text-white'>
+                              {gameDetail?.releaseYear}
+                         </span>
+                    </span>
+                    <span className='font-bold text-stone-400  flex items-center gap-1 '>Tags :
+                         <span className='text-white flex gap-3'>
+                              {gameDetail && gameDetail.tags.map((el, index) => {
+                                   return <div key={index} >
+                                        <span className=' bg-[#1F2937] rounded-md text-[#8E95A2] border border-[#8E95A2]  text-xs max-w-40 p-1 ' > {el} </span>
+                                   </div>
+                              })}
+                         </span>
+                    </span> 
+
+
+                    <div className='flex justify-center items-center  px-3 py-2 mt-2 bg-[#60A5FA] 
                          
                          text-white font-semibold rounded-lg shadow-md transition duration-800 animate-pulse cursor-pointer   '>
                          {/* add to favourite */}
                          <AddFavouriteFdetails game={gameDetail} />
                     </div>
+                    <hr className='stroke-stone-50 mt-2  opacity-20' />
+
+                    <div className='flex flex-col items-center justify-center w-58 m-auto gap-2'>
+                         <span className='font-semibold text-white text-2xl'>Buy Now </span>
+                         <div className='flex gap-2'> {gameDetail && gameDetail.links.map((el, index) => {
+                              return <button
+                                   key={index}
+                                   className=' bg-[#60A5FA] p-2 rounded-md text-xs shadow-2xl animate-pulse duration-150 text-white cursor-pointer'
+                                   role="link"
+                                   onClick={() => window.open(el.url, '_blank', 'noopener,noreferrer')}
+                              >
+                                   {el.platform}
+                              </button>
 
 
 
-                    <span className='font-bold text-stone-400 '>Category :
-                         <span className='text-white'>
-                              {gameDetail?.category}
-                         </span>
-                    </span>
-                    <span className='font-bold text-stone-400 '>Developer :
-                         <span className='text-white'>
-                              {gameDetail?.developer}
-                         </span>
-                    </span>
-                    <span className='font-bold text-stone-400 '>ReleaseYear :
-                         <span className='text-white'>
-                              {gameDetail?.releaseYear}
-                         </span>
-                    </span>
-                    <span className='font-bold text-stone-400  '>Tags :
-                         <span className='text-white flex gap-3 my-2'>
-                              {gameDetail && gameDetail.tags.map((el, index) => {
-                                   return <div key={index} >
-                                        <span className='bg-[#60A5FA] p-2 rounded-2xl text-xs shadow-2xl'> {el} </span>
-                                   </div>
-                              })}
-                         </span>
-                    </span>
-                    <hr className='stroke-stone-50 mt-5  opacity-20' />
 
-                    <div className='flex justify-between w-48 m-auto'>
-                         <span className='font-bold text-stone-500 text-xl flex flex-col justify-between items-center'> <span className='text-[#60A5FA]'>Rating </span><span className={
-                              gameDetail?.rating.slice(0, 3) >= 9 ? "text-green-600" :
-                                   gameDetail?.rating.slice(0, 3) > 5 ? "text-green-300" :
-                                        "text-red-800"
-                         }>
-                              {gameDetail?.rating.slice(0, 3)}
-                         </span>
 
-                         </span>
-                         <span className='font-bold text-stone-500 text-xl flex flex-col justify-between items-center'> <span className='text-[#60A5FA]'>Price </span><span className={
-                              gameDetail?.price.slice(1)<50 ? "text-green-400" :
-                                   gameDetail?.price.slice(1) < 10 ? "text-green-600" :
-                                        "text-red-800"
-                         }>
-                              {gameDetail?.price.slice(1)}
-                         </span>
-
-                         </span>
+                         })
+                         }
+                         </div>
                     </div>
 
                </div>

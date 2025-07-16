@@ -1,4 +1,5 @@
 import React from 'react'
+import { IoSearch } from "react-icons/io5";
 import { NavLink } from 'react-router-dom'
 import AddFavourite from './AddFavourite'
 import { ToastContainer, Bounce } from 'react-toastify'
@@ -20,13 +21,8 @@ function Card({ game }) {
                               <span className='font-bold text-white'>{game.title}</span>
                               {/* Details */}
                               <NavLink to={`/games/${id}`}>
-                                   <button className="btn">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="#0000" stroke=" rgb(129, 110, 216)" data-name="Layer 1" viewBox="0 0 24 24" id="github"
-                                             strokeLinecap="round" strokeLinejoin="round" className="feather feather-plus-circle">
-                                             <circle cx="12" cy="12" r="10" />
-                                             <line x1="12" y1="8" x2="12" y2="16" />
-                                             <line x1="8" y1="12" x2="16" y2="12" />
-                                        </svg>
+                                   <button className="buttonD">
+                                        <span className="span"><IoSearch/></span>
                                    </button>
                               </NavLink>
                          </div>

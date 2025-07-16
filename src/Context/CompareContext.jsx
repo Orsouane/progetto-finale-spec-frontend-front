@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-import React from 'react'
+
 const url = import.meta.env.VITE_URL;
 const CompareContext = createContext()
 function CompareProvider({ children }) {
@@ -33,9 +33,21 @@ function CompareProvider({ children }) {
                console.error("errore nel recupero dei dati", error)
           }
      }
+     
+     //? Reset 
+     const resetCompare = () => {
+          setGameCompare1(null);
+          setGameCompare2(null);
+          setCompare("Add to compare");
+          setCompare2("Add to compare");
+          sessionStorage.removeItem("gameCompare1");
+          sessionStorage.removeItem("gameCompare2");
+     };
+
+
 
      return (
-          <CompareContext.Provider value={{ compare, setCompare, compare2, setCompare2, getGame1, getGame2, gameCompare1, gameCompare2 }}>
+          <CompareContext.Provider value={{ compare, setCompare, compare2, setCompare2, getGame1, getGame2, gameCompare1, gameCompare2 ,resetCompare}}>
                {children}
           </CompareContext.Provider>
      )

@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useCallback, useEffect, useState } from "react";
 import React from 'react'
 const url = import.meta.env.VITE_URL;
 const GlobalContext = createContext()
@@ -23,7 +23,7 @@ function GlobalProvider({ children }) {
 
     
      //! GET one game 
-     const getGame =async (id) => {
+     const getGame = useCallback(async (id) => {
           try {
                const response = await fetch(`${url}/${id}`)
                const data = await response.json()
@@ -31,7 +31,7 @@ function GlobalProvider({ children }) {
           } catch (error) {
                console.error("errore nel recupero dei dati", error)
           }
-     }
+     },[]) 
 
      
 
