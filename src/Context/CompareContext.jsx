@@ -1,9 +1,9 @@
 import { createContext, useState } from "react";
+import { useParams } from "react-router-dom";
 
 const url = import.meta.env.VITE_URL;
 const CompareContext = createContext()
 function CompareProvider({ children }) {
-
      //* Giochi da confrontare
      const [gameCompare1, setGameCompare1] = useState(null);
      const [gameCompare2, setGameCompare2] = useState(null);
@@ -33,7 +33,7 @@ function CompareProvider({ children }) {
                console.error("errore nel recupero dei dati", error)
           }
      }
-     
+
      //? Reset 
      const resetCompare = () => {
           setGameCompare1(null);
@@ -47,7 +47,7 @@ function CompareProvider({ children }) {
 
 
      return (
-          <CompareContext.Provider value={{ compare, setCompare, compare2, setCompare2, getGame1, getGame2, gameCompare1, gameCompare2 ,resetCompare}}>
+          <CompareContext.Provider value={{ compare, setCompare, compare2, setCompare2, getGame1, getGame2, gameCompare1, gameCompare2, resetCompare }}>
                {children}
           </CompareContext.Provider>
      )

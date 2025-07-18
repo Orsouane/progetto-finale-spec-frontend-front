@@ -29,15 +29,16 @@ function App() {
                                                   </Suspense>
                                              }
                                         />
-                                        <Route
+                                       <Route
                                              path="/games/:id"
                                              element={
                                                   <Suspense fallback={<DetailsSkeleton />}>
                                                        <DetailsPage />
                                                   </Suspense>
                                              }
-                                        />
-                                        <Route
+                                        /> 
+                                      
+                                     <Route
                                              path="/Compare"
                                              element={
                                                   <Suspense fallback={<ComparatorSkeleton />}>
@@ -45,6 +46,7 @@ function App() {
                                                   </Suspense>
                                              }
                                         />
+                                      
                                         <Route
                                              path="/Favourite"
                                              element={
