@@ -1,13 +1,15 @@
+// App.jsx
 import React, { Suspense } from "react";
-import { BrowserRouter,Routes,Route } from "react-router-dom";
-import DetailsSkeleton from "./Skeleton/DetailsSkeleton"
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import DetailsSkeleton from "./Skeleton/DetailsSkeleton";
 import FavouriteSkeleton from "./Skeleton/FavouriteSkeleton";
-import RecordsSkeleton from "./Skeleton/RecordsSkeleton"
-import ComparatorSkeleton from "./Skeleton/ComparatorSkeleton"
+import RecordsSkeleton from "./Skeleton/RecordsSkeleton";
+import ComparatorSkeleton from "./Skeleton/ComparatorSkeleton";
 import { GlobalProvider } from "./Context/GlobalContext";
-import {FavouriteProvider} from "./Context/FavouriteContext"
-import {CompareProvider} from "./Context/CompareContext" 
-import  DefaultLayout from "./Layout/DefaultLayout"
+import { FavouriteProvider } from "./Context/FavouriteContext";
+import { CompareProvider } from "./Context/CompareContext";
+import DefaultLayout from "./Layout/DefaultLayout";
+
 const RecordsList = React.lazy(() => import("./Pages/RecordsList"));
 const DetailsPage = React.lazy(() => import("./Pages/DetailsPage"));
 const ComparatorPage = React.lazy(() => import("./Pages/ComparatorPage"));
@@ -29,24 +31,22 @@ function App() {
                                                   </Suspense>
                                              }
                                         />
-                                       <Route
-                                             path="/games/:id"
+                                        <Route
+                                             path="/:slug"
                                              element={
                                                   <Suspense fallback={<DetailsSkeleton />}>
                                                        <DetailsPage />
                                                   </Suspense>
                                              }
-                                        /> 
-                                      
-                                     <Route
-                                             path="/Compare"
+                                        />
+                                        <Route
+                                             path="/Compare/:slug"
                                              element={
                                                   <Suspense fallback={<ComparatorSkeleton />}>
                                                        <ComparatorPage />
                                                   </Suspense>
                                              }
                                         />
-                                      
                                         <Route
                                              path="/Favourite"
                                              element={

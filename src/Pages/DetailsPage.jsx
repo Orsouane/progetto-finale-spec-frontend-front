@@ -8,11 +8,11 @@ import AddFavouriteFdetails from '../Components/AddFavouriteFdetails'
 function DetailsPage({ game }) {
 
      //* Recuperare id dal URL
-     const { id } = useParams()
+     const { slug } = useParams()
      //* Recuperare gameDetail e getGame  dal contesto globale
      const { gameDetail, getGame } = useContext(GlobalContext)
      //* Quando id o getGame cambiano, chiamo getGame con l'id per caricare dettagli
-     useEffect(() => { getGame(id); }, [id, getGame]);
+     useEffect(() => { getGame(slug); }, [slug, getGame]);
 
      // Stato per tracciare l'indice dell'immagine attiva
      const [activeIndex, setActiveIndex] = useState(0);

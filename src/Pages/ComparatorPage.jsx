@@ -34,7 +34,7 @@ function ComparatorPage() {
                {/* Card 1  */}
             <div className='text-sm max-w-92 shadow-2xl bg-[#1F2937] p-1 sm:p-2 rounded-md hover:border-[#8E95A2] hover:transform hover:-translate-y-1 transition-all duration-300 ease-out border border-gray-700/80 backdrop-blur-sm h-92 sm:h-full'>
               <div className='text-white text-center rounded-md py-1 mt-2 px-2 bg-[#0F1923]/50 m-auto my-2 shadow-2xl border border-stone-700 w-fit'>Game 1</div>
-              <img src={savedGameCompare1.imagesExtra[0]} className='border-[#8E95A2] border shadow-2xl h-48 sm:h-64 w-92' />
+              <img src={savedGameCompare1.imagesExtra[0]} className='border-[#8E95A2] border shadow-2xl h-48 sm:h-64 w-92' alt='image of the fisrt game to compare' />
               <div className='grid sm:grid-cols-2 gap-2 pt-2'>
                 {chiaveComparator.map((el, index) => (
                   <p key={index}>
@@ -47,7 +47,7 @@ function ComparatorPage() {
                      {/* Card 2  */}
                            <div className='text-sm max-w-92 shadow-2xl bg-[#1F2937] p-1 sm:p-2 rounded-md hover:border-[#8E95A2] hover:transform hover:-translate-y-1 transition-all duration-300 ease-out border border-gray-700/80 backdrop-blur-sm h-92 sm:h-full'>
               <div className='text-white text-center rounded-md py-1 mt-2 px-2 bg-[#0F1923]/50 m-auto my-2 shadow-2xl border border-stone-700 w-fit'>Game 2</div>
-                                <img src={savedGameCompare2.imagesExtra[0]} className='border-[#8E95A2] border shadow-2xl h-48 sm:h-64 w-92' />
+                                <img src={savedGameCompare2.imagesExtra[0]} className='border-[#8E95A2] border shadow-2xl h-48 sm:h-64 w-92' alt='image of the second game to compare' />
               <div className='grid sm:grid-cols-2 gap-2 pt-2'>
                 {chiaveComparator.map((el, index) => (
                   <p key={index}>

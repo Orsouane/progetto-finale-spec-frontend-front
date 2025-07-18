@@ -1,45 +1,41 @@
 import { createContext, useCallback, useEffect, useState } from "react";
-import React from 'react'
+import React from "react";
 const url = import.meta.env.VITE_URL;
-const GlobalContext = createContext()
-function GlobalProvider({ children }) {
-     //*all games list 
-     const [records, setRecords] = useState([])
-     //*Game to show it details
-     const [gameDetail, setGameDetail] = useState(null)
+const GlobalContext = createContext();
 
-  //! GET DI TUTTI I DATI
+function GlobalProvider({ children }) {
+     const [records, setRecords] = useState([]);
+     const [gameDetail, setGameDetail] = useState(null);
+
      const getData = async () => {
           try {
-               const response = await fetch(url)
-               const data = await response.json()
-               setRecords(data)
+               const response = await fetch(url);
+               const data = await response.json();
+               setRecords(data.games || data);
           } catch (error) {
-               console.error("errore nel recupero dei dati", error)
+               console.error("errore nel recupero dei dati", error);
           }
-     }
+     };
 
-     useEffect(() => { getData() }, [])
+     useEffect(() => {
+          getData();
+     }, []);
 
-    
-     //! GET one game 
-     const getGame = useCallback(async (id) => {
+     const getGame = useCallback(async (slug) => {
           try {
-               const response = await fetch(`${url}/${id}`)
-               const data = await response.json()
-               setGameDetail(data.game)
+               const response = await fetch(`${url}/${slug}`);
+               const data = await response.json();
+               setGameDetail(data.game || data);
           } catch (error) {
-               console.error("errore nel recupero dei dati", error)
+               console.error("errore nel recupero dei dati", error);
           }
-     },[]) 
+     }, []);
 
-     
-
-   
      return (
-          <GlobalContext.Provider value={{ records, gameDetail, getGame}}>
+          <GlobalContext.Provider value={{ records, gameDetail, getGame }}>
                {children}
           </GlobalContext.Provider>
-     )
+     );
 }
-export { GlobalProvider, GlobalContext }
+
+export { GlobalProvider, GlobalContext };

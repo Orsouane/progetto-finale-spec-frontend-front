@@ -48,7 +48,7 @@ function DetailsSkeleton() {
         <hr className='stroke-stone-50 mt-2 opacity-20' />
 
         <div className='flex flex-col items-center justify-center w-58 m-auto gap-2'>
-          <span className='font-semibold text-white text-2xl'>Purchase On</span>
+          <span className='font-semibold text-white text-2xl'>Buy On</span>
           <div className='flex gap-2'>
             <div className="animate-pulse bg-gray-300 w-8 h-5 rounded-md mb-1"></div>
           </div>

@@ -10,14 +10,14 @@ function AddFavouriteFdetails({ game }) {
      const { records } = useContext(GlobalContext);
      const { favouriteGames, setFavouriteGames } = useContext(FavouriteContext);
      //*  Controllo se gia inserita nell favourite
-     const isFav = favouriteGames.some(el => el?.id === game.id);
+     const isFav = favouriteGames.some(el => el?.slug === game.slug);
 
      const handleFavourite = () => {
           if (isFav) {
                notifyExists();
           } else {
                notifyAdd();
-               const findGame = records.find(el => el.id === game.id);
+               const findGame = records.find(el => el.slug === game.slug);
                const updated = [...favouriteGames, findGame];
                setFavouriteGames(updated);
                localStorage.setItem('favouriteGames', JSON.stringify(updated));

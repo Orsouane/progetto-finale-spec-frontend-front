@@ -2,7 +2,8 @@ import { createContext, useState } from "react";
 import { useParams } from "react-router-dom";
 
 const url = import.meta.env.VITE_URL;
-const CompareContext = createContext()
+const CompareContext = createContext();
+
 function CompareProvider({ children }) {
      //* Giochi da confrontare
      const [gameCompare1, setGameCompare1] = useState(null);
@@ -13,26 +14,26 @@ function CompareProvider({ children }) {
      const [compare2, setCompare2] = useState("Add to compare");
 
      //?   1° Game to compare
-     const getGame1 = async (id) => {
+     const getGame1 = async (slug) => {
           try {
-               const response = await fetch(`${url}/${id}`)
-               const data = await response.json()
-               setGameCompare1(data.game)
+               const response = await fetch(`${url}/${slug}`);
+               const data = await response.json();
+               setGameCompare1(data.game);
           } catch (error) {
-               console.error("errore nel recupero dei dati", error)
+               console.error("errore nel recupero dei dati", error);
           }
-     }
+     };
 
      //?   2° Game to compare
-     const getGame2 = async (id) => {
+     const getGame2 = async (slug) => {
           try {
-               const response = await fetch(`${url}/${id}`)
-               const data = await response.json()
-               setGameCompare2(data.game)
+               const response = await fetch(`${url}/${slug}`);
+               const data = await response.json();
+               setGameCompare2(data.game);
           } catch (error) {
-               console.error("errore nel recupero dei dati", error)
+               console.error("errore nel recupero dei dati", error);
           }
-     }
+     };
 
      //? Reset 
      const resetCompare = () => {
@@ -44,12 +45,11 @@ function CompareProvider({ children }) {
           sessionStorage.removeItem("gameCompare2");
      };
 
-
-
      return (
           <CompareContext.Provider value={{ compare, setCompare, compare2, setCompare2, getGame1, getGame2, gameCompare1, gameCompare2, resetCompare }}>
                {children}
           </CompareContext.Provider>
-     )
+     );
 }
-export { CompareProvider, CompareContext }
+
+export { CompareProvider, CompareContext };

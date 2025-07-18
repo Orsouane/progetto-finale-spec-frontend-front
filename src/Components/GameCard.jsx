@@ -5,7 +5,7 @@ import AddFavourite from './AddFavourite'
 import { ToastContainer, Bounce } from 'react-toastify'
 
 function Card({ game }) {
-     const id = game.id
+     const slug = game.slug
 
      return (
           <>
@@ -20,7 +20,7 @@ function Card({ game }) {
                          <div className='flex justify-between'>
                               <span className='font-bold text-white'>{game.title}</span>
                               {/* Details */}
-                              <NavLink to={`/games/${id}`}>
+                              <NavLink to={`/${slug}`}>
                                    <button className="buttonD ">
                                         <span className="span "><IoSearch/></span>
                                    </button>
