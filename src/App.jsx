@@ -1,4 +1,3 @@
-// App.jsx
 import React, { Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import DetailsSkeleton from "./Skeleton/DetailsSkeleton";
@@ -9,6 +8,8 @@ import { GlobalProvider } from "./Context/GlobalContext";
 import { FavouriteProvider } from "./Context/FavouriteContext";
 import { CompareProvider } from "./Context/CompareContext";
 import DefaultLayout from "./Layout/DefaultLayout";
+import ErrorPage from "./Components/UiComponents/ErrorPage";
+import ServerError from "./Components/UiComponents/ServerError";
 
 const RecordsList = React.lazy(() => import("./Pages/RecordsList"));
 const DetailsPage = React.lazy(() => import("./Pages/DetailsPage"));
@@ -47,6 +48,8 @@ function App() {
                                                   </Suspense>
                                              }
                                         />
+                                        <Route path="/ErrorPage" element={<ErrorPage />} />
+                                        <Route path="/ServerError" element={<ServerError />} />
                                         <Route
                                              path="/Favourite"
                                              element={
@@ -55,6 +58,7 @@ function App() {
                                                   </Suspense>
                                              }
                                         />
+                                        <Route path="*" element={<ErrorPage />} />
                                    </Route>
                               </Routes>
                          </BrowserRouter>

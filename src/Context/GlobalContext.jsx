@@ -1,19 +1,27 @@
-import { createContext, useCallback, useEffect, useState } from "react";
-import React from "react";
+import { createContext, useEffect, useState } from "react";
+import ServerError from "../Components/UiComponents/ServerError";
+
+import Loader from "../Components/UiComponents/Loader" ;
+
 const url = import.meta.env.VITE_URL;
 const GlobalContext = createContext();
 
 function GlobalProvider({ children }) {
      const [records, setRecords] = useState([]);
-     const [gameDetail, setGameDetail] = useState(null);
+     const [serverError, setServerError] = useState(false);
+     const [loading, setLoading] = useState(true);
 
      const getData = async () => {
           try {
                const response = await fetch(url);
+               if (!response.ok) throw new Error();
                const data = await response.json();
                setRecords(data.games || data);
           } catch (error) {
                console.error("errore nel recupero dei dati", error);
+               setServerError(true);
+          } finally {
+               setLoading(false);
           }
      };
 
@@ -21,18 +29,11 @@ function GlobalProvider({ children }) {
           getData();
      }, []);
 
-     const getGame = useCallback(async (slug) => {
-          try {
-               const response = await fetch(`${url}/${slug}`);
-               const data = await response.json();
-               setGameDetail(data.game || data);
-          } catch (error) {
-               console.error("errore nel recupero dei dati", error);
-          }
-     }, []);
+     if (serverError) return <ServerError />;
+     if (loading) return <Loader/>;
 
      return (
-          <GlobalContext.Provider value={{ records, gameDetail, getGame }}>
+          <GlobalContext.Provider value={{ records, getData }}>
                {children}
           </GlobalContext.Provider>
      );

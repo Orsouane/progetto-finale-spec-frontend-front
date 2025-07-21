@@ -12,7 +12,7 @@ function RecordsSkeleton() {
                               {/* Contatore */}
                               <div className="animate-pulse bg-gray-300 w-12 h-5 rounded-md mb-1 "></div>
                               {/* Filter button */}
-                              <div className="animate-pulse bg-gray-300 w-12 h-10 rounded-md mb-1 "></div>
+                              <div className="animate-pulse bg-gray-300 w-8 h-8 rounded-md mb-1 "></div>
                          </div>
 
                     </div>

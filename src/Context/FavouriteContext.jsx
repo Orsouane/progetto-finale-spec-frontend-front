@@ -21,7 +21,7 @@ function FavouriteProvider({ children }) {
           //* Funzione per fetchare dettagli di un singolo gioco 
           const fetchGameDetails = async (game) => {
                try {
-                    const res = await fetch(`${url}/games/${game.slug}`)
+                    const res = await fetch(`${url}/${game.slug}`)
                     const data = await res.json(); JSON
                     // console.log(data.game)
                     return data.game; 
