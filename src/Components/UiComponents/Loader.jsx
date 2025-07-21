@@ -6,8 +6,7 @@ function PremiumGamingLoader() {
 
      const phases = [
           "Initializing...",
-          "Loading catalog...",
-          "Syncing account...",
+          "Loading Games...",
           "Finalizing..."
      ];
 
