@@ -61,3 +61,56 @@ function FavouriteProvider({ children }) {
 }
 
 export { FavouriteProvider, FavouriteContext };
+
+
+// FavouriteContext.jsx si fa fetch ogni volta che utente accede al FavouritePage 🥵 per il performance
+// import React, { createContext, useEffect, useState } from 'react';
+// const FavouriteContext = createContext();
+// const url = import.meta.env.VITE_URL;
+
+// function FavouriteProvider({ children }) {
+//      const [favouriteGames, setFavouriteGames] = useState(
+//           JSON.parse(localStorage.getItem('favouriteGames') || '[]')
+//      );
+//      const [fullFavourites, setFullFavourites] = useState([]);
+
+//      useEffect(() => {
+//           localStorage.setItem('favouriteGames', JSON.stringify(favouriteGames));
+//           if (favouriteGames.length === 0) {
+//                setFullFavourites([]);
+//                return;
+//           }
+//           async function fetchDetails() {
+//                try {
+//                     const results = await Promise.all(
+//                          favouriteGames.map(async (slug) => {
+//                               const res = await fetch(`${url}/${slug}`);
+//                               const data = await res.json();
+//                               return data.game;
+//                          })
+//                     );
+//                     setFullFavourites(results.filter(Boolean));
+//                } catch {
+//                     setFullFavourites([]);
+//                }
+//           }
+//           fetchDetails();
+//      }, [favouriteGames]);
+
+//      const updateFavourites = (slug) => {
+//           setFavouriteGames((prev) =>
+//                prev.includes(slug) ? prev.filter((f) => f !== slug) : [...prev, slug]
+//           );
+//      };
+
+//      return (
+//           <FavouriteContext.Provider
+//                value={{ favouriteGames, updateFavourites, fullFavourites, setFavouriteGames }}
+//           >
+//                {children}
+//           </FavouriteContext.Provider>
+//      );
+// }
+
+// export { FavouriteProvider, FavouriteContext };
+
