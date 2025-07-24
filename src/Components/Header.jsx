@@ -13,7 +13,7 @@ function Header() {
                     </NavLink>
                     <div className='flex gap-x-1 items-center '>
                          <NavLink to={"/"}  className='text-white p-1 rounded-md text-sm font-light flex items-center  hover:bg-[#8E95A2]/30'> <CgGames className='mr-0.5' />  <span className='text-xs sm:text-base'>All Games </span>  </NavLink>
-                         <NavLink to={`/Favourite`} className="bg-[#1F2937] text-white p-1 rounded-md text-sm  font-light flex items-center hover:bg-[#8E95A2]/30 " >
+                         <NavLink to={`/Favorite`} className="bg-[#1F2937] text-white p-1 rounded-md text-sm  font-light flex items-center hover:bg-[#8E95A2]/30 " >
                               <IoMdHeart className='pr-0.5' /> <span className='text-xs sm:text-base'>Favorite</span>
                          </NavLink>
                     </div>

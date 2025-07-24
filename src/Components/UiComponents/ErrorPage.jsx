@@ -80,7 +80,7 @@ const navigate = useNavigate()
                     {/* Subtitle */}
                     <div className="mb-8">
                          <p className="text-xl md:text-2xl text-white mb-2 opacity-90">
-                              The game you're searching for is not found.
+                              The page you're searching for is not found.
                          </p>
                       
                     </div>
