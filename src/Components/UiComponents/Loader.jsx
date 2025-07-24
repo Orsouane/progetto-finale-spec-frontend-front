@@ -34,7 +34,7 @@ function PremiumGamingLoader() {
 
      return (<>  
    
-     <section>
+     <section className='min-h-screen'>
                <div className='p-4 sticky top-0 z-50 bg-[#0F1923] h-18 text-xs sm:text-base'>
                     <div className='flex justify-between items-center p-3 max-w-[1000px] m-auto bg-[#1F2937] rounded-md h-full shadow-2xl'>
                          < div className='text-[#60A5FA] flex items-center gap-1 c
