@@ -70,7 +70,7 @@ cursor-not-allowed pointer-events-none'>
                          <div className='flex gap-x-1 items-center '>
                               <p className='cursor-not-allowed pointer-events-none   text-white p-1 rounded-md text-sm font-light flex items-center  hover:bg-[#8E95A2]/30'> <CgGames className='mr-0.5' />  <span className='text-xs sm:text-base '>All Games </span>  </p>
                               <p className="cursor-not-allowed pointer-events-none   bg-[#1F2937] text-white p-1 rounded-md text-sm  font-light flex items-center hover:bg-[#8E95A2]/30 " >
-                                   <IoMdHeart className='pr-0.5' /> <span className='text-xs sm:text-base '>Favourites</span>
+                                   <IoMdHeart className='pr-0.5' /> <span className='text-xs sm:text-base '>Favorite</span>
                               </p>
                          </div>
                     </div>
@@ -137,15 +137,21 @@ cursor-not-allowed pointer-events-none'>
                               <div className="absolute -top-4 -left-2 w-2 h-2 bg-indigo-400" style={{
                                    boxShadow: '0 0 10px #6366f1',
                                    animation: 'pixelCrash 1.2s ease-in-out infinite'
-                              }}></div>
+                              }}>
+
+                              </div>
                               <div className="absolute -top-2 -right-3 w-3 h-3 bg-purple-400" style={{
                                    boxShadow: '0 0 10px #8b5cf6',
                                    animation: 'pixelCrash 1.5s ease-in-out infinite reverse'
-                              }}></div>
+                              }}>
+
+                              </div>
                               <div className="absolute -bottom-3 left-2 w-2 h-2 bg-blue-400" style={{
                                    boxShadow: '0 0 10px #60a5fa',
                                    animation: 'pixelCrash 1.8s ease-in-out infinite'
-                              }}></div>
+                              }}>
+                                   
+                              </div>
                          </div>
 
                          {/* System Crash Text */}

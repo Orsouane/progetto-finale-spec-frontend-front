@@ -51,7 +51,7 @@ function App() {
                                         <Route path="/ErrorPage" element={<ErrorPage />} />
                                         <Route path="/ServerError" element={<ServerError />} />
                                         <Route
-                                             path="/Favourite"
+                                             path="/Favorite"
                                              element={
                                                   <Suspense fallback={<FavouriteSkeleton />}>
                                                        <FavouritePage />

@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-
+import Jumbotron from './Jumbotron/Jumbotron';
+import { CgGames } from "react-icons/cg";
+import { IoMdHeart } from "react-icons/io";
 function PremiumGamingLoader() {
      const [progress, setProgress] = useState(0);
      const [currentPhase, setCurrentPhase] = useState(0);
@@ -30,8 +32,29 @@ function PremiumGamingLoader() {
           return () => clearInterval(progressInterval);
      }, [currentPhase]);
 
-     return (
-          <div className="fixed inset-0 bg-[#0F1923] flex items-center justify-center overflow-hidden">
+     return (<>  
+   
+     <section>
+               <div className='p-4 sticky top-0 z-50 bg-[#0F1923] h-18 text-xs sm:text-base'>
+                    <div className='flex justify-between items-center p-3 max-w-[1000px] m-auto bg-[#1F2937] rounded-md h-full shadow-2xl'>
+                         < div className='text-[#60A5FA] flex items-center gap-1 c
+cursor-not-allowed pointer-events-none'>
+                              <p className=' rounded-[50%] p-0.5 sm:p-1 font-bold text-[#0F1923] bg-[#60A5FA] border-2 border-[#0F1923] '>  BS   </p>
+                              BoolStation store
+                         </div>
+                         <div className='flex gap-x-1 items-center '>
+                              <p className='cursor-not-allowed pointer-events-none   text-white p-1 rounded-md text-sm font-light flex items-center  hover:bg-[#8E95A2]/30'> <CgGames className='mr-0.5' />  <span className='text-xs sm:text-base '>All Games </span>  </p>
+                              <p className="cursor-not-allowed pointer-events-none   bg-[#1F2937] text-white p-1 rounded-md text-sm  font-light flex items-center hover:bg-[#8E95A2]/30 " >
+                                   <IoMdHeart className='pr-0.5' /> <span className='text-xs sm:text-base '>Favourites</span>
+                              </p>
+                         </div>
+                    </div>
+               </div>
+      
+     </section>
+     
+     
+          <div className=" inset-0 bg-[#0F1923] flex items-center justify-center overflow-hidden">
                {/* Background matrix effect */}
                <div className="absolute inset-0">
                     {[...Array(20)].map((_, i) => (
@@ -52,7 +75,7 @@ function PremiumGamingLoader() {
                     ))}
                </div>
 
-               <div className="text-center max-w-lg mx-auto px-8 relative z-10">
+               <div className="text-center max-w-lg mx-auto px-8 relative z-10 mt-3" >
 
                     {/* Logo principale - Ispirato a controller Xbox/PS */}
                     <div className="mb-16">
@@ -68,11 +91,9 @@ function PremiumGamingLoader() {
                               <div className="absolute inset-4 rounded-full border-2 border-blue-500/40 animate-pulse"></div>
 
                               {/* Centro con icona gaming */}
-                              <div className="absolute inset-8 rounded-full bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700 flex items-center justify-center shadow-2xl shadow-blue-500/30">
+                              <div className="absolute inset-8 rounded-full  bg-[#60A5FA] border-2 border-[#0F1923] flex items-center justify-center shadow-2xl shadow-blue-500/30">
                                    {/* Controller symbol */}
-                                   <svg className="w-12 h-12 text-white animate-pulse" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="M7.97 16c-.85 0-1.55-.64-1.63-1.48L5.5 9c-.03-.39-.4-.5-.68-.5s-.65.11-.68.5L3.3 14.52c-.08.84-.78 1.48-1.63 1.48-.93 0-1.67-.74-1.67-1.67 0-.03 0-.06.01-.09L1.2 8.6C1.5 6.02 3.66 4 6.25 4h11.5c2.59 0 4.75 2.02 5.05 4.6l1.19 5.12c.01.03.01.06.01.09 0 .93-.74 1.67-1.67 1.67-.85 0-1.55-.64-1.63-1.48L19.86 9c-.03-.39-.4-.5-.68-.5s-.65.11-.68.5l-.84 5.52c-.08.84-.78 1.48-1.63 1.48s-1.55-.64-1.63-1.48L14.68 12H9.32l-.28 2.52C8.96 15.36 8.82 16 7.97 16z" />
-                                   </svg>
+                                  <p className='font-semibold text-xl'> BS </p>
                               </div>
 
                               {/* Orbiting elements - stile Destiny */}
@@ -83,12 +104,13 @@ function PremiumGamingLoader() {
                               </div>
                          </div>
 
-                         <h1 className="text-4xl font-bold text-white mb-3 tracking-wider">
-                              <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
+                         <h1 className="text-4xl  mb-3 flex flex-col items-center ">
+                              <span className="text-[#60A5FA]  ">
                                    BoolStation
                               </span>
+                              <span className=' text-[#60A5FA]'  > Store</span>
                          </h1>
-                       
+
                     </div>
 
                     {/* Stato caricamento */}
@@ -163,6 +185,8 @@ function PremiumGamingLoader() {
         }
       `}</style>
           </div>
+     </>
+        
      );
 }
 
