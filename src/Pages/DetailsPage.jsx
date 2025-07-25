@@ -31,7 +31,7 @@ function DetailsPage() {
      };
 
      return (
-          <div className="m-5">
+          <div className="m-5 ">
                {gameDetail && (
                     <div className="bg-[#1F2937] p-3 rounded-md mt-10 flex justify-center flex-col text-sm sm:text-base max-w-[820px] m-auto hover:border-[#8E95A2] transition-all duration-300 ease-out border border-gray-700/80 backdrop-blur-sm h-[420px] sm:h-full">
                          <div className="sm:flex gap-2 aspect-video h-full w-full mt-2">
