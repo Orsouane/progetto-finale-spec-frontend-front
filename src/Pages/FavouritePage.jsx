@@ -53,8 +53,9 @@ function FavouritePage() {
                          pauseOnHover
                          theme="dark"
                          transition={Bounce}
-                    />
+                    /> <div className='text-white text-center rounded-md p-3 text-base bg-[#0F1923]/50 m-auto shadow-2xl border sm:text-xl border-stone-700 w-fit'>Favorite page</div>
                     {fullFavourites.length !== 0 ? (
+                         
                          <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 max-w-[1200px] m-auto  ' >
                               {fullFavourites && fullFavourites.map((favourite, index) => (
                                    <div className='bg-[#1F2937] max-w-[400px] p-2 rounded-md m-5 hover:border-[#8E95A2] 

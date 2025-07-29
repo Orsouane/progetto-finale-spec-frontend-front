@@ -29,7 +29,7 @@ function ComparatorPage() {
   return (
     <section className=' mx-2 sm:mx-4'>
       {savedGameCompare1 && savedGameCompare2 ? (
-        <section className='max-w-[800px] m-auto text-xs sm:text-base mt-2'>
+                 <section className='max-w-[800px] m-auto text-xs sm:text-base mt-2'>   <div className='text-white text-center rounded-md py-3 my-2 mb-4 px-4 text-base bg-[#0F1923]/50 m-auto shadow-2xl border sm:text-xl border-stone-700 w-fit'>Compare Page</div>
           <section className=' flex justify-between gap-2 '>
                {/* Card 1  */}
             <div className='text-sm max-w-92 shadow-2xl bg-[#1F2937] p-1 sm:p-2 rounded-md hover:border-[#8E95A2] hover:transform hover:-translate-y-1 transition-all duration-300 ease-out border border-gray-700/80 backdrop-blur-sm h-92 sm:h-full'>

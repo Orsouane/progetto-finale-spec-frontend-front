@@ -31,9 +31,11 @@ function DetailsPage() {
      };
 
      return (
-          <div className="m-5 ">
+          <div className="mx-5 mb-5 ">
+               <div className='text-white text-center rounded-md p-3 text-base bg-[#0F1923]/50 m-auto shadow-2xl border sm:text-xl border-stone-700 w-fit'>Details page</div>
                {gameDetail && (
-                    <div className="bg-[#1F2937] p-3 rounded-md mt-10 flex justify-center flex-col text-sm sm:text-base max-w-[820px] m-auto hover:border-[#8E95A2] transition-all duration-300 ease-out border border-gray-700/80 backdrop-blur-sm h-[420px] sm:h-full">
+                    <div className="bg-[#1F2937] p-3 rounded-md mt-5 flex justify-center flex-col text-sm sm:text-base max-w-[820px] m-auto hover:border-[#8E95A2] transition-all duration-300 ease-out border border-gray-700/80 backdrop-blur-sm h-[420px] sm:h-full">
+                         
                          <div className="sm:flex gap-2 aspect-video h-full w-full mt-2">
                               <div className="relative sm:w-3/4">
                                    <img
