@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Jumbotron from './Jumbotron/Jumbotron';
-import { NavLink } from 'react-router-dom'
 import { CgGames } from "react-icons/cg";
 import { IoMdHeart } from "react-icons/io";
 const ServerError = () => {
@@ -9,14 +8,14 @@ const ServerError = () => {
      const [scanlinePosition, setScanlinePosition] = useState(0);
      const [systemRebooting, setSystemRebooting] = useState(false);
 
-     const glitchVariations = ['SYSTEM CRASH', 'SY5T3M CR4SH', 'S¥$T€M CRASH', 'SYST3M CR@SH'];
+     const glitchVariations = ['SERVER ERROR', ' S3RV3R 3RROR', ' SEЯVER  ƎЯRØR', ' S3RVER 3RR0R'];
 
      useEffect(() => {
           // Text glitch effect
           const glitchInterval = setInterval(() => {
                const randomText = glitchVariations[Math.floor(Math.random() * glitchVariations.length)];
                setGlitchText(randomText);
-               setTimeout(() => setGlitchText('SYSTEM CRASH'), 150);
+               setTimeout(() => setGlitchText('SERVER ERROR'), 150);
           }, 1800);
 
           // Generate pixel particles (more chaotic for system crash)
@@ -167,14 +166,14 @@ cursor-not-allowed pointer-events-none'>
                          </h1>
 
                          {/* 500 Subtitle */}
-                         <div className="text-2xl md:text-3xl font-bold mb-8 text-center" style={{
+                         {/* <div className="text-2xl md:text-3xl font-bold mb-8 text-center" style={{
                               fontFamily: 'Courier New, monospace',
                               color: '#8b5cf6',
                               textShadow: '0 0 15px #8b5cf6, 0 0 30px #8b5cf6',
                               letterSpacing: '0.15em'
                          }}>
                              SERVER ERROR
-                         </div>
+                         </div> */}
 
                          {/* Error Code Display */}
                          <div className="mb-8 flex items-center  text-center  flex-col gap-1 ">

@@ -80,28 +80,28 @@ function ComparatorPage() {
                 <tbody>
                   <tr>
                     <td className='text-[#60A5FA] px-10'><strong>Rating</strong></td>
-                    <td className={`text-white ${ savedGameCompare1.rating < savedGameCompare2.rating ? 'bg-red-500' : 'bg-green-500' } `}>
+                    <td className={`text-white ${ savedGameCompare1.rating < savedGameCompare2.rating ? 'bg-red-700' : 'bg-green-700' } `}>
                       {savedGameCompare1.rating}
                     </td>
-                    <td className={`text-white ${ savedGameCompare2.rating < savedGameCompare1.rating ? 'bg-red-500' : 'bg-green-500' } `}>
+                    <td className={`text-white ${ savedGameCompare2.rating < savedGameCompare1.rating ? 'bg-red-700' : 'bg-green-700' } `}>
                       {savedGameCompare2.rating}
                     </td>
                   </tr>
                   <tr className='border-[#8E95A2]/20 border shadow-2xl'>
                     <td className='text-[#60A5FA]'><strong>Price</strong></td>
-                    <td className={`text-white ${ savedGameCompare1.price > savedGameCompare2.price ? 'bg-red-500' : 'bg-green-500' } `}>
+                    <td className={`text-white ${ savedGameCompare1.price > savedGameCompare2.price ? 'bg-red-700' : 'bg-green-700' } `}>
                       {savedGameCompare1.price}
                     </td>
-                    <td className={`text-white ${ savedGameCompare2.price > savedGameCompare1.price ? 'bg-red-500' : 'bg-green-500' } `}>
+                    <td className={`text-white ${ savedGameCompare2.price > savedGameCompare1.price ? 'bg-red-700' : 'bg-green-700' } `}>
                       {savedGameCompare2.price}
                     </td>
                   </tr>
                   <tr className='border-[#8E95A2]/20 border shadow-2xl'>
                     <td className='text-[#60A5FA]'><strong>ReleaseYear</strong></td>
-                    <td className={`text-white ${ savedGameCompare1.releaseYear < savedGameCompare2.releaseYear ? 'bg-red-500' : 'bg-green-500' } `}>
+                    <td className={`text-white ${ savedGameCompare1.releaseYear < savedGameCompare2.releaseYear ? 'bg-red-700' : 'bg-green-700' } `}>
                       {savedGameCompare1.releaseYear}
                     </td>
-                    <td className={`text-white ${ savedGameCompare2.releaseYear < savedGameCompare1.releaseYear ? 'bg-red-500' : 'bg-green-500' } `}>
+                    <td className={`text-white ${ savedGameCompare2.releaseYear < savedGameCompare1.releaseYear ? 'bg-red-700' : 'bg-green-700' } `}>
                       {savedGameCompare2.releaseYear}
                     </td>
                   </tr>

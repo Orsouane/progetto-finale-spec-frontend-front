@@ -48,7 +48,7 @@ import SplitText from './JumbotronTextAnimation';
                {/* Content container */}
                <div className="relative z-10 flex flex-col items-center justify-center h-full p-8 text-center">
                     <h1 className="text-5xl font-bold tracking-tight text-white mb-4  ">
-                         BoolStation store
+                         BoolStation Store
                     </h1>
                     <div className="text-xl text-purple-100 max-w-2xl mb-8">
                        
